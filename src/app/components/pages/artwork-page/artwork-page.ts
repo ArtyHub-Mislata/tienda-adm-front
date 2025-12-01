@@ -22,7 +22,7 @@ export class ArtworkPage {
       }
       
     )
-    this.httpService.getById(this.id).subscribe({
+    this.httpService.getArtWorkById(this.id).subscribe({
       next: (artwork) => {
         this.artwork = artwork
       }, 

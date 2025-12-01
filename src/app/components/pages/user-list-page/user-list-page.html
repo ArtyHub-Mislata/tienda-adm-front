@@ -1,1 +1,30 @@
-<p>user-list-page works!</p>
+<br>
+<h3>Listado de Artworks (Pa probar si funciona el getAll)</h3>
+<div style="width:90%">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+               <th>ID</th> 
+               <th>USERNAME</th> 
+               <th>EMAIL</th> 
+               <th>NOMBRE</th> 
+               <th>APELLIDO</th> 
+               <th>AVATAR</th> 
+               <th>BIO</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of usermodelList; track user.id) {
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td><img width="100px" src="{{user.avatarUrl}}"></td>
+                    <td>{{user.bio}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -10,7 +10,7 @@ import { HttpService } from '../../../services/http-service';
   styleUrl: './artwork-page.scss',
 })
 export class ArtworkPage {
-  private artwork!: ArtWorkModel;
+  artwork!: ArtWorkModel;
   private id!: string;
   constructor(private route: ActivatedRoute, private httpService: HttpService){}
 
@@ -18,7 +18,9 @@ export class ArtworkPage {
     this.route.paramMap.subscribe(
       paramMap => {
         this.id = paramMap.get('id')!
+        console.log("Aqui ha llegado")
       }
+      
     )
     this.httpService.getById(this.id).subscribe({
       next: (artwork) => {
@@ -28,6 +30,9 @@ export class ArtworkPage {
         console.log(error)
       }
     })
+  }
+  mostrar(){
+    console.log(this.artwork)
   }
 
 }

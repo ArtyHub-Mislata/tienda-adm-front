@@ -7,7 +7,7 @@ import { ArtWorkModel } from '../models/ArtWorkModel';
   providedIn: 'root',
 })
 export class HttpService {
-  private url = "http://localhost:3106"
+  private url = "http://localhost:3000"
 
   constructor(private httpClient: HttpClient){}
 

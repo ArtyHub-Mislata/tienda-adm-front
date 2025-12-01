@@ -3,7 +3,7 @@ import { UserModel } from "./UserModel";
 
 export interface ArtWorkModel {
     id: string;
-    title: string;
+    nombre: string;
     description: string;
     imgUrl: string;
     price: number;

@@ -1,10 +1,2 @@
-<div class="card">
-    <p>ID: {{artwork.id}}</p>
-    <p>NOMBRE: {{artwork.nombre}}</p>
-    <p>DESCRIPCION: {{artwork.description}}</p>
-    <img src="{{artwork.imgUrl}}" alt="imagen arte">
-    <p>PRECIO: {{artwork.price}}</p>
-    <p>STOCK: {{artwork.stock}}</p>
-    <p>CATEGORIA: {{artwork.category.nombre}}</p>
-</div>
-<button (click)="mostrar()">Mostrar</button>
+<card-artwork [artwork]="artwork"></card-artwork>
+<button routerLink="/artworks">VOLVER</button>

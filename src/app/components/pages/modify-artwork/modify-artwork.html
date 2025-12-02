@@ -1,0 +1,43 @@
+<form>
+
+    <label>Nombre
+    <input type="text" [(ngModel)]="artwork.nombre" name="nombre">
+    </label>
+
+    <br><br>
+
+    <label>Descripción
+    <input type="text" [(ngModel)]="artwork.description" name="description">
+    </label>
+
+    <br><br>
+
+    <label>URL Imagen
+    <input type="text" [(ngModel)]="artwork.imgUrl" name="imgUrl">
+    </label>
+
+    <br><br>
+
+    <label>Price
+    <input type="number" [(ngModel)]="artwork.price" name="price">
+    </label>
+
+    <label>category
+        <select name="category" [(ngModel)] = "artwork.category">
+            @for (category of categories; track category.id) {
+                <option [ngValue]="category">{{category.nombre}}</option>
+            }
+        </select>
+    </label>
+
+    <br><br>
+
+    <label>Stock
+    <input type="number" [(ngModel)]="artwork.price" name="price">
+    </label>
+    <br><br>
+
+    <button (click)="save()">SAVE</button>
+    <button routerLink="/artworks">CANCEL</button>
+</form>
+   

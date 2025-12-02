@@ -19,15 +19,27 @@
   ],
   "artworks": [
     {
-      "id": "art2",
-      "nombre": "Figura de Má",
-      "description": "Escultura clásica tallada en mármol blanco con detalles realistas.",
-      "imgUrl": "https://picsum.photos/id/1025/600/400",
-      "price": 12,
-      "stock": 2,
+      "id": "art1",
+      "nombre": "Pintura EJEMPLO MOD",
+      "description": "Una pintura al óleo que captura los tonos cálidos del atardecer reflejados en el mar.",
+      "imgUrl": "https://picsum.photos/id/1015/600/400",
+      "price": 220,
+      "stock": 5,
       "category": {
         "id": "cat1",
         "nombre": "Pintura"
+      }
+    },
+    {
+      "id": "art2",
+      "nombre": "Figura de Mármol",
+      "description": "Escultura clásica tallada en mármol blanco con detalles realistas.",
+      "imgUrl": "https://picsum.photos/id/1025/600/400",
+      "price": 1200,
+      "stock": 2,
+      "category": {
+        "id": "cat2",
+        "nombre": "Escultura"
       }
     },
     {

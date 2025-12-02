@@ -24,8 +24,8 @@ export class HttpService {
   getArtWorkById(id:string):Observable<ArtWorkModel>{
     return this.httpClient.get<ArtWorkModel>(`${this.url}/artworks/${id}`)
   }
-  putArtWork(artwork: ArtWorkModel):Observable<ArtWorkModel>{
-    return this.httpClient.put<ArtWorkModel>(`${this.url}/artworks/${artwork.id}`, artwork)
+  putArtWork(artwork: ArtWorkModel, id: string):Observable<ArtWorkModel>{
+    return this.httpClient.put<ArtWorkModel>(`${this.url}/artworks/${id}`, artwork)
   }
   //Aqui en post lo que recibimos en teoria es diferente a lo que mandamos, por lo que creo que habria que
   //crear nuevas clases modelo con el tipo de respuesta que nos mande la api
@@ -45,8 +45,8 @@ export class HttpService {
   getUserById(id:string):Observable<UserModel>{
     return this.httpClient.get<UserModel>(`${this.url}/users/${id}`)
   }
-  putUser(artwork: UserModel):Observable<UserModel>{
-    return this.httpClient.put<UserModel>(`${this.url}/users/${artwork.id}`, artwork)
+  putUser(artwork: UserModel, id: string):Observable<UserModel>{
+    return this.httpClient.put<UserModel>(`${this.url}/users/${id}`, artwork)
   }
   postUser(artwork: UserModel):Observable<UserModel>{
     return this.httpClient.post<UserModel>(`${this.url}/users`, artwork)
@@ -56,7 +56,7 @@ export class HttpService {
   }
 
   //CRUD CATEGORIAS
-
+  //TODO el getAll de todos los cruds deberia devolver un Page con el objeto dentro, que es lo que pasa el backend
   getAllCategories(): Observable<CategoryModel[]>{
     return this.httpClient.get<CategoryModel[]>(`${this.url}/categories`)
   }
@@ -64,8 +64,8 @@ export class HttpService {
   getCategoryId(id:string):Observable<CategoryModel>{
     return this.httpClient.get<CategoryModel>(`${this.url}/categories/${id}`)
   }
-  putCategory(artwork: CategoryModel):Observable<CategoryModel>{
-    return this.httpClient.put<CategoryModel>(`${this.url}/categories/${artwork.id}`, artwork)
+  putCategory(artwork: CategoryModel, id: string):Observable<CategoryModel>{
+    return this.httpClient.put<CategoryModel>(`${this.url}/categories/${id}`, artwork)
   }
   postCategory(artwork: CategoryModel):Observable<CategoryModel>{
     return this.httpClient.post<CategoryModel>(`${this.url}/categories`, artwork)

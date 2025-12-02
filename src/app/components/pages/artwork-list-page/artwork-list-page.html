@@ -1,5 +1,6 @@
 <br>
 <h3>Listado de Artworks (Pa probar si funciona el getAll)</h3>
+<button routerLink="/artworks/new">CREAR ARTWORK</button>
 <div style="width:90%">
     <table class="table table-bordered table-striped">
         <thead>
@@ -16,13 +17,17 @@
         <tbody>
             @for (artwork of artworkList; track artwork.id) {
                 <tr>
-                    <td>{{artwork.id}}</td>
-                    <td>{{artwork.nombre}}</td>
+                    <td><a routerLink="{{artwork.id}}">{{artwork.id}}</a></td>
+                    <td><a routerLink="{{artwork.id}}">{{artwork.nombre}}</a></td>
                     <td>{{artwork.description}}</td>
                     <td><img width="100px" src="{{artwork.imgUrl}}"></td>
                     <td>{{artwork.price}}</td>
                     <td>{{artwork.stock}}</td>
                     <td>{{artwork.category.nombre}}</td>
+                    <td>
+                        <a class="btn btn-danger" routerLink="{{artwork.id}}/delete">ELIMINAR</a>
+                        <a class="btn btn-info" routerLink="{{artwork.id}}/edit" >MODIFICAR</a>
+                    </td>
                 </tr>
             }
         </tbody>

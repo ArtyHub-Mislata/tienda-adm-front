@@ -7,6 +7,6 @@ export interface ArtWorkModel {
     description: string;
     imgUrl: string;
     price: number;
-    stock: number;
     category: CategoryModel;
+    user: UserModel;
 }

@@ -45,11 +45,11 @@ export class HttpService {
   getUserById(id:string):Observable<UserModel>{
     return this.httpClient.get<UserModel>(`${this.url}/users/${id}`)
   }
-  putUser(artwork: UserModel, id: string):Observable<UserModel>{
-    return this.httpClient.put<UserModel>(`${this.url}/users/${id}`, artwork)
+  putUser(user: UserModel, id: string):Observable<UserModel>{
+    return this.httpClient.put<UserModel>(`${this.url}/users/${id}`, user)
   }
-  postUser(artwork: UserModel):Observable<UserModel>{
-    return this.httpClient.post<UserModel>(`${this.url}/users`, artwork)
+  postUser(user: UserModel):Observable<UserModel>{
+    return this.httpClient.post<UserModel>(`${this.url}/users`, user)
   }
   deleteUser(id: string):Observable<void> {
     return this.httpClient.delete<void>(`${this.url}/users/${id}`)
@@ -61,14 +61,14 @@ export class HttpService {
     return this.httpClient.get<CategoryModel[]>(`${this.url}/categories`)
   }
   
-  getCategoryId(id:string):Observable<CategoryModel>{
+  getCategoryById(id:string):Observable<CategoryModel>{
     return this.httpClient.get<CategoryModel>(`${this.url}/categories/${id}`)
   }
-  putCategory(artwork: CategoryModel, id: string):Observable<CategoryModel>{
-    return this.httpClient.put<CategoryModel>(`${this.url}/categories/${id}`, artwork)
+  putCategory(category: CategoryModel, id: string):Observable<CategoryModel>{
+    return this.httpClient.put<CategoryModel>(`${this.url}/categories/${id}`, category)
   }
-  postCategory(artwork: CategoryModel):Observable<CategoryModel>{
-    return this.httpClient.post<CategoryModel>(`${this.url}/categories`, artwork)
+  postCategory(category: CategoryModel):Observable<CategoryModel>{
+    return this.httpClient.post<CategoryModel>(`${this.url}/categories`, category)
   }
   deleteCategory(id: string):Observable<void> {
     return this.httpClient.delete<void>(`${this.url}/categories/${id}`)

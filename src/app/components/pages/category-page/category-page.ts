@@ -27,7 +27,7 @@ export class CategoryPage {
   }
 
   loadCategory(id:string){
-    this.httpService.getCategoryId(id).subscribe({
+    this.httpService.getCategoryById(id).subscribe({
       next: (category) => {
         this.category = category
       }, 

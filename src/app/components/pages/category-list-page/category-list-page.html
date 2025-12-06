@@ -1,0 +1,25 @@
+<br>
+<h3>Listado de Categorias (Pa probar si funciona el getAll)</h3>
+<button routerLink="/categories/new">CREAR CATEGORIA</button>
+<div style="width:90%">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+               <th>ID</th> 
+               <th>NOMBRE</th> 
+            </tr>
+        </thead>
+        <tbody>
+            @for (category of categoryList; track category.id) {
+                <tr>
+                    <td><a routerLink="{{category.id}}">{{category.id}}</a></td>
+                    <td><a routerLink="{{category.id}}">{{category.nombre}}</a></td>
+                    <td>
+                        <a class="btn btn-danger" routerLink="{{category.id}}/delete">ELIMINAR</a>
+                        <a class="btn btn-info" routerLink="{{category.id}}/edit" >MODIFICAR</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

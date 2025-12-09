@@ -1,0 +1,11 @@
+@if (artwork) {
+    <div class="card">
+        <p>NOMBRE: {{artwork.name}}</p>
+        <p>DESCRIPCION: {{artwork.description}}</p>
+        <img [src]="artwork.image" alt="imagen arte">
+        <p>PRECIO: {{artwork.price}}</p>
+        <p>CATEGORIA: {{artwork.categoryDto?.name}}</p>
+        <p>USUARIO: {{artwork.userDto.name}}</p>
+    </div>
+    <button (click)="mostrar()">Mostrar</button>
+}

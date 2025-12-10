@@ -40,8 +40,8 @@ export class HttpService {
 
   //CRUD USUARIOS
   
-  getAllUsers(): Observable<UserModel[]>{
-    return this.httpClient.get<UserModel[]>(`${this.url}/users`)
+  getAllUsers(): Observable<PageResponse<UserModel>>{
+    return this.httpClient.get<PageResponse<UserModel>>(`${this.url}/users`)
   }
   
   getUserById(id:string):Observable<UserModel>{
@@ -59,8 +59,8 @@ export class HttpService {
 
   //CRUD CATEGORIAS
 
-  getAllCategories(): Observable<CategoryModel[]>{
-    return this.httpClient.get<CategoryModel[]>(`${this.url}/categories`)
+  getAllCategories(): Observable<PageResponse<CategoryModel>>{
+    return this.httpClient.get<PageResponse<CategoryModel>>(`${this.url}/categories`)
   }
   
   getCategoryId(id:string):Observable<CategoryModel>{

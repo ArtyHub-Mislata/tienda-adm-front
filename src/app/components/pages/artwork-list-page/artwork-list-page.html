@@ -18,15 +18,15 @@
                 @for (artwork of artworkList.data; track artwork.id) {
                     <tr>
                         <td>{{artwork.id}}</td>
-                        <td>{{artwork.name}}</td>
+                        <td><a routerLink="{{artwork.id}}">{{artwork.name}}</a></td>
                         <td>{{artwork.description}}</td>
                         <td><img width="100px" src="{{artwork.image}}"></td>
                         <td>{{artwork.price}}</td>
                         <td>{{artwork.categoryDto.name}}</td>
                         <td>{{artwork.userDto.id}}</td>
                         <td>
-                            <button class="btn btn-danger">Borrar</button>
-                            <button class="btn btn-primary">Modificar</button>
+                            <a routerLink="/artworks/{{artwork.id}}/delete" class="btn btn-danger">Borrar</a>
+                            <a class="btn btn-primary" routerLink="/artworks/{{artwork.id}}/edit">Modificar</a>
                         </td>
                     </tr>
                 }

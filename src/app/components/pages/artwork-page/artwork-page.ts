@@ -11,29 +11,30 @@ import { HttpService } from '../../../services/http-service';
 })
 export class ArtworkPage {
   artwork!: ArtWorkModel;
-  private id!: string;
+  
   constructor(private route: ActivatedRoute, private httpService: HttpService){}
 
   ngOnInit(){
     this.route.paramMap.subscribe(
       paramMap => {
-        this.id = paramMap.get('id')!
-        
+        const id = paramMap.get('id')!
+        if(id){
+          this.loadArtwork(id)
+        }
       }
       
     )
-    this.httpService.getArtWorkById(this.id).subscribe({
+    
+  }
+  loadArtwork(id: string){
+    this.httpService.getArtWorkById(id).subscribe({
       next: (artwork) => {
-        console.log( "LLEGA AQUIIIIIIII          "+ artwork)
         this.artwork = artwork
       }, 
       error: (error) => {
         console.log(error)
       }
     })
-  }
-  mostrar(){
-    console.log(this.artwork)
   }
 
 }

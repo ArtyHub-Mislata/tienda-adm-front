@@ -1,0 +1,21 @@
+@if(user){
+    <div class="card" style="width: 400PX;">
+        <img [src]="user.imageProfileUrl" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{user.name}}</h5>
+            <p class="card-text">{{user.description}}</p>
+            <p class="card-text">
+                <strong>Email:</strong> {{user.email}}
+            </p>
+            <p class="card-text">
+                <strong>Dirección:</strong> {{user.address}}
+            </p>
+            <div class="d-flex justify-content-between">
+                <span class="badge bg-primary">{{user.role}}</span>
+                <small class="text-muted">Cuenta: {{user.nAccount}}</small>
+            </div>
+        </div>
+    </div>
+    <button (click)="debug()">DEBUG</button>
+    
+}

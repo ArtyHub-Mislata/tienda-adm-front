@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../../services/http-service';
 import { UserModel } from '../../../models/UserModel';
+import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-user-list-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './user-list-page.html',
   styleUrl: './user-list-page.scss',
 })
@@ -21,7 +22,7 @@ export class UserListPage {
   getAllUsers(){
     this.httpService.getAllUsers().subscribe({
       next: (users) => {
-        this.usermodelList = users;
+        this.usermodelList = users.data;
       }, 
       error: (error) => {
         console.log("Error al tratar de recoger todos los usuarios", error)

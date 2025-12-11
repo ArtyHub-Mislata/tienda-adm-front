@@ -10,8 +10,8 @@
                <th>DESCRIPCION</th> 
                <th>IMAGEN</th> 
                <th>PRECIO</th> 
-               <th>STOCK</th> 
                <th>CATEGORIA</th>
+               <th>USER</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +22,8 @@
                     <td>{{artwork.description}}</td>
                     <td><img width="100px" src="{{artwork.imgUrl}}"></td>
                     <td>{{artwork.price}}</td>
-                    <td>{{artwork.stock}}</td>
                     <td>{{artwork.category.nombre}}</td>
+                    <td>{{artwork.user.username}}</td>
                     <td>
                         <a class="btn btn-danger" routerLink="{{artwork.id}}/delete">ELIMINAR</a>
                         <a class="btn btn-info" routerLink="{{artwork.id}}/edit" >MODIFICAR</a>

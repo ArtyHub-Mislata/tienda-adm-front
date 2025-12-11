@@ -14,10 +14,16 @@ export class AddArtWork {
     description: '',
     imgUrl: '',
     price: 0,
-    stock: 0,
     category: {
       id: '',
       nombre: ''
+    },
+    user: {
+      id: '',
+      username: '',
+      email: '',
+      firstName: '',
+      lastName: ''
     }
   }
   

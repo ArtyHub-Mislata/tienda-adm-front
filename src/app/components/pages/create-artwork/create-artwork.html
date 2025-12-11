@@ -1,0 +1,39 @@
+@if(artwork){
+    <form>
+        <label>Nombre
+        <input type="text" [(ngModel)]="artwork.name" name="nombre">
+        </label>
+
+        <br><br>
+
+        <label>Descripción
+        <input type="text" [(ngModel)]="artwork.description" name="description">
+        </label>
+
+        <br><br>
+
+        <label>URL Imagen
+        <input type="text" [(ngModel)]="artwork.image" name="image">
+        </label>
+
+        <br><br>
+
+        <label>Price
+        <input type="number" [(ngModel)]="artwork.price" name="price">
+        </label>
+
+        <br><br>
+
+        <label>category
+            <select name="category" [(ngModel)] = "artwork.categoryDto">
+                @for (category of categories; track category.id) {
+                    <option [ngValue]="category">{{category.name}}</option>
+                }
+            </select>
+        </label>
+        <br><br>
+
+        <button (click)="create()">SAVE</button>
+        <button routerLink="/users/{{user.id}}">CANCEL</button>
+    </form>
+}   

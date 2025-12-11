@@ -1,0 +1,27 @@
+<br>
+<h3>Listado de Artworks (Pa probar si funciona el getAll)</h3>
+<div style="width:90%">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+               <th>ID</th> 
+               <th>NOMBRE</th> 
+            </tr>
+        </thead>
+        <tbody>
+            @if (categories) {
+                @for (category of categories; track category.id) {
+                    <tr>
+                        <td>{{category.id}}</td>
+                        <td>{{category.name}}</td>
+                        
+                        <td>
+                            <a routerLink="/categories/{{category.id}}/delete" class="btn btn-danger">Borrar</a>
+                            <a class="btn btn-primary" routerLink="/categories/{{category.id}}/edit">Modificar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 
 @Component({
   selector: 'app-artwork-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './artwork-page.html',
   styleUrl: './artwork-page.scss',
 })

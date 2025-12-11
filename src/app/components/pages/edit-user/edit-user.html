@@ -1,1 +1,61 @@
-<p>edit-user works!</p>
+@if(user){
+    <form>
+        <label>Nombre
+            <input type="text" [(ngModel)]="user.name" name="name">
+        </label>
+
+        <br><br>
+
+        <label>Email
+            <input type="email" [(ngModel)]="user.email" name="email">
+        </label>
+
+        <br><br>
+
+        <label>Contraseña
+            <input type="text" [(ngModel)]="user.password" name="password">
+        </label>
+
+        <br><br>
+
+        <label>Número de Cuenta
+            <input type="text" [(ngModel)]="user.nAccount" name="nAccount">
+        </label>
+
+        <br><br>
+
+        <label>Descripción
+            <textarea [(ngModel)]="user.description" name="description"></textarea>
+        </label>
+
+        <br><br>
+
+        <label>Dirección
+            <input type="text" [(ngModel)]="user.address" name="address">
+        </label>
+
+        <br><br>
+
+        <label>URL de Imagen de Perfil
+            <input type="text" [(ngModel)]="user.imageProfileUrl" name="imageProfileUrl">
+        </label>
+
+        <br><br>
+
+        <label>Rol
+            <select name="role" [(ngModel)]="user.role">
+                <option value= "ADMIN">ADMIN</option>
+                <option value= "USER">USER</option>
+            </select>
+        </label>
+
+        <br><br>
+
+        <button (click)="save()">GUARDAR</button>
+        <button routerLink="/users">CANCELAR</button>
+    </form>
+}
+
+@if(!user) {
+    <p>Cargando usuario...</p>
+}

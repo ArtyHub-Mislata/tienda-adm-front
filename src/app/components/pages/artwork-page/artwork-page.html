@@ -10,7 +10,7 @@
             </p>
                 <div class="d-flex justify-content-between">
                 <span>Categoria: {{artwork.categoryDto.name}}</span>
-                <p>{{artwork.userDto.name}}</p>
+                <p><a routerLink="/users/{{artwork.userDto.id}}">{{artwork.userDto.name}}</a></p>
             </div>
         </div>
     </div>

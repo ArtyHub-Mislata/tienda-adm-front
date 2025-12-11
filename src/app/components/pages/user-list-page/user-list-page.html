@@ -8,11 +8,10 @@
                <th>NAME</th> 
                <th>EMAIL</th> 
                <th>PASSWORD</th> 
-               <th>nAccount</th> 
+               <th>NºACCOUNT</th> 
                <th>DESCRIPCION</th>
                <th>ADDRESS</th>
                <th>AVATAR</th> 
-               <th>ARTWORKS</th>
                <th>ROLE</th>
             </tr>
         </thead>
@@ -27,8 +26,11 @@
                     <td>{{user.description}}</td>
                     <td>{{user.address}}</td>
                     <td><img width="100px" src="{{user.imageProfileUrl}}"></td>
-                    <td>AQUI IRIA UN ENLACE A ARTWORKS DEL USER</td>
                     <td>{{user.role}}</td>
+                    <td>
+                        <a routerLink="/users/{{user.id}}/delete" class="btn btn-danger">Borrar</a>
+                        <a class="btn btn-primary" routerLink="/users/{{user.id}}/edit">Modificar</a>
+                    </td>
                 </tr>
             }
         </tbody>

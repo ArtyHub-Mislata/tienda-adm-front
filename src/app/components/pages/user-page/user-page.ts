@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserModel } from '../../../models/UserModel';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
+import { ArtWorkModel } from '../../../models/ArtWorkModel';
 
 @Component({
   selector: 'app-user-page',
@@ -11,7 +12,7 @@ import { HttpService } from '../../../services/http-service';
 })
 export class UserPage {
   user!: UserModel;
-  
+  artworks!: ArtWorkModel[]
   constructor(private route: ActivatedRoute, private httpService: HttpService){}
 
   ngOnInit(){
@@ -20,6 +21,7 @@ export class UserPage {
         const id = paramMap.get('id')!
         if(id){
           this.loadUser(id)
+          this.loadArtworksOfUser(id)
         }
       }
       
@@ -36,7 +38,14 @@ export class UserPage {
       }
     })
   }
-  debug(){
-    console.log(this.user)
+  loadArtworksOfUser(id:string){
+    this.httpService.getAllArtworksOfUser(id).subscribe({
+      next: (artworkPage) => {
+        this.artworks = artworkPage.data
+      }, 
+      error: (error) => {
+        console.log(error)
+      }
+    })
   }
 }

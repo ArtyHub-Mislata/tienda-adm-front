@@ -16,6 +16,41 @@
             </div>
         </div>
     </div>
-    <button (click)="debug()">DEBUG</button>
+    
+    <button class="btn btn-primary" routerLink="/users">VOLVER</button>
+    <h3>OBRAS DEL USUARIO</h3>
+    <button routerLink="/artworks/new/{{user.id}}">CREAR OBRA</button>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+               <th>ID</th> 
+               <th>NOMBRE</th> 
+               <th>DESCRIPCION</th> 
+               <th>IMAGEN</th> 
+               <th>PRECIO</th> 
+               <th>CATEGORIA</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (artworks) {
+                @for (artwork of artworks; track artwork.id) {
+                    <tr>
+                        <td>{{artwork.id}}</td>
+                        <td><a routerLink="/artworks/{{artwork.id}}">{{artwork.name}}</a></td>
+                        <td>{{artwork.description}}</td>
+                        <td><img width="100px" src="{{artwork.image}}"></td>
+                        <td>{{artwork.price}}</td>
+                        <td>{{artwork.categoryDto.name}}</td>
+                        
+                        <td>
+                            <a routerLink="/artworks/{{artwork.id}}/delete" class="btn btn-danger">Borrar</a>
+                            <a class="btn btn-primary" routerLink="/artworks/{{artwork.id}}/edit">Modificar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
     
 }

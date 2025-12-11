@@ -1,0 +1,11 @@
+<h1>EDITANDO CATEGORIA</h1>
+@if(category){
+    <form>
+        <label>Nombre
+        <input type="text" [(ngModel)]="category.name" name="nombre">
+        </label>
+
+        <button (click)="save()">SAVE</button>
+        <button routerLink="/categories">CANCEL</button>
+    </form>
+}   

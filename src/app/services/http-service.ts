@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArtWorkModel } from '../models/ArtWorkModel';
+import { CredentialModel } from '../models/CredentialModel';
 import { UserModel } from '../models/UserModel';
 import { CategoryModel } from '../models/CategoryModel';
 
@@ -74,6 +75,15 @@ export class HttpService {
     return this.httpClient.delete<void>(`${this.url}/categories/${id}`)
   }
 
-  
+  //LOGIN
+  login(credential: CredentialModel): Observable<{ token: string }> {
+    return this.httpClient.post<{ token: string }>(`${this.url}/login`, credential);
+  }
+
+  logout() {
+    const token = localStorage.getItem('token');
+    localStorage.removeItem('token');
+    return this.httpClient.post(`${this.url}/logout?token=${token}`, {});
+  }
 
 }

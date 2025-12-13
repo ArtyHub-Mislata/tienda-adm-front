@@ -67,13 +67,15 @@ export class CreateArtwork {
       this.httpService.postArtWork(this.artwork).subscribe({
       next: (artwork) => {
         console.log(artwork + "SE HA CREADO")
+        this.router.navigate([`users/${this.user.id}`])
       },
       error: (error) => {
         console.log(error + "NO SE HA CREADO")
+        this.router.navigate([`users/${this.user.id}`])
       }
     })
     }
     
-    this.router.navigate([`users/${this.user.id}`])
+    
   }
 }

@@ -5,6 +5,7 @@ import { ArtWorkModel } from '../models/ArtWorkModel';
 import { UserModel } from '../models/UserModel';
 import { CategoryModel } from '../models/CategoryModel';
 import { PageResponse } from '../models/PageResponseModel';
+import { CredentialModel } from '../models/CredentialModel';
 
 @Injectable({
   providedIn: 'root',
@@ -80,6 +81,16 @@ export class HttpService {
   }
   deleteCategory(id: string):Observable<void> {
     return this.httpClient.delete<void>(`${this.url}/categories/${id}`)
+  }
+
+  login(credential: CredentialModel): Observable<{ token: string }> {
+    return this.httpClient.post<{ token: string }>(`${this.url}/users/login`, credential);
+  }
+
+  logout():Observable<void> {
+    const token = localStorage.getItem('token');
+    localStorage.removeItem('token');
+    return this.httpClient.delete<void>(`${this.url}/users/logout?token=${token}`);
   }
 
   

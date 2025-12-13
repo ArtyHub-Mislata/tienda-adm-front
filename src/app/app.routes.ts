@@ -13,27 +13,30 @@ import { CategoryListPage } from './components/pages/category-list-page/category
 import { EditCategory } from './components/pages/edit-category/edit-category';
 import { DeleteCategory } from './components/pages/delete-category/delete-category';
 import { CreateCategory } from './components/pages/create-category/create-category';
+import { logInGuardGuard } from './guards/log-in-guard-guard';
+import { LoginPage } from './components/pages/login-page/login-page';
 
 export const routes: Routes = [
 
-    {path: "artworks", component: ArtworkListPage},
-    {path: "artworks/:id", component: ArtworkPage}, 
-    {path: "artworks/:id/delete", component: DeleteArtwork}, 
-    {path: "artworks/:id/edit", component: EditArtwork}, 
-    {path: "artworks/new/:id", component: CreateArtwork}, 
+    {path: "artworks", component: ArtworkListPage, canActivate: [logInGuardGuard]},
+    {path: "artworks/:id", component: ArtworkPage, canActivate: [logInGuardGuard]}, 
+    {path: "artworks/:id/delete", component: DeleteArtwork, canActivate: [logInGuardGuard]}, 
+    {path: "artworks/:id/edit", component: EditArtwork, canActivate: [logInGuardGuard]}, 
+    {path: "artworks/new/:id", component: CreateArtwork, canActivate: [logInGuardGuard]}, 
 
-    {path: "users/new", component: CreateUser}, 
-    {path: "users/:id/edit", component: EditUser},
-    {path: "users/:id/delete", component: DeleteUser},  
-    {path: "users/:id", component: UserPage},
-    {path: "users", component: UserListPage},
+    {path: "users/new", component: CreateUser, canActivate: [logInGuardGuard]}, 
+    {path: "users/:id/edit", component: EditUser, canActivate: [logInGuardGuard]},
+    {path: "users/:id/delete", component: DeleteUser, canActivate: [logInGuardGuard]},  
+    {path: "users/:id", component: UserPage, canActivate: [logInGuardGuard]},
+    {path: "users", component: UserListPage, canActivate: [logInGuardGuard]},
     
 
-    {path: "categories", component: CategoryListPage},
-    {path: "categories/:id/edit", component: EditCategory},
-    {path: "categories/:id/delete", component: DeleteCategory},
-    {path: "categories/new", component: CreateCategory}
+    {path: "categories", component: CategoryListPage, canActivate: [logInGuardGuard]},
+    {path: "categories/:id/edit", component: EditCategory, canActivate: [logInGuardGuard]},
+    {path: "categories/:id/delete", component: DeleteCategory, canActivate: [logInGuardGuard]},
+    {path: "categories/new", component: CreateCategory, canActivate: [logInGuardGuard]},
 
+    {path:"login", component: LoginPage}
 
 
 

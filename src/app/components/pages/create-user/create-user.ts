@@ -1,11 +1,33 @@
 import { Component } from '@angular/core';
+import { UserModel } from '../../../models/UserModel';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { HttpService } from '../../../services/http-service';
 
 @Component({
   selector: 'app-create-user',
-  imports: [],
+  imports: [FormsModule, RouterLink],
   templateUrl: './create-user.html',
   styleUrl: './create-user.scss',
 })
 export class CreateUser {
+  user: UserModel = {} as UserModel;
+
+  constructor(private route: ActivatedRoute, private httpService: HttpService, private router :Router){}
+
+
+  create(){
+    this.httpService.postUser(this.user).subscribe({
+      next: (user)=>{
+        console.log("Usuario creado con exito");
+        this.router.navigate(['/users']);
+      }, 
+      error: (error) => {
+        console.log("Error creando usuario")
+        this.router.navigate(['/users']);
+
+      }
+    })
+  }
 
 }

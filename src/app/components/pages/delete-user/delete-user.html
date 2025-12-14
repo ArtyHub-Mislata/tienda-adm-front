@@ -1,0 +1,60 @@
+<h3>ELIMINAR USUARIO</h3>
+@if (user) {
+    <div class="card" style="width: 400PX;">
+        <img [src]="user.imageProfileUrl" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{user.name}}</h5>
+            <p class="card-text">{{user.description}}</p>
+            <p class="card-text">
+                <strong>Email:</strong> {{user.email}}
+            </p>
+            <p class="card-text">
+                <strong>Dirección:</strong> {{user.address}}
+            </p>
+            <div class="d-flex justify-content-between">
+                <span class="badge bg-primary">{{user.role}}</span>
+                <small class="text-muted">Cuenta: {{user.nAccount}}</small>
+            </div>
+        </div>
+    </div>
+}
+
+@if (artworks && artworks.length > 0) {
+    <h2>NO PUEDES ELIMINAR A UN USUARIO CON ARTWORKS, PRIMERO ELIMINA LOS ARTWORKS</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+               <th>ID</th> 
+               <th>NOMBRE</th> 
+               <th>DESCRIPCION</th> 
+               <th>IMAGEN</th> 
+               <th>PRECIO</th> 
+               <th>CATEGORIA</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (artworks) {
+                @for (artwork of artworks; track artwork.id) {
+                    <tr>
+                        <td>{{artwork.id}}</td>
+                        <td><a routerLink="/artworks/{{artwork.id}}">{{artwork.name}}</a></td>
+                        <td>{{artwork.description}}</td>
+                        <td><img width="100px" src="{{artwork.image}}"></td>
+                        <td>{{artwork.price}}</td>
+                        <td>{{artwork.categoryDto.name}}</td>
+                        
+                        <td>
+                            <a (click)="borrarArtwork(artwork.id)" class="btn btn-danger">Borrar</a>
+                            <a class="btn btn-primary" routerLink="/artworks/{{artwork.id}}/edit">Modificar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+@if (artworks && artworks.length == 0) {
+    <button (click)="eliminarUsuario()">==ELIMINAR USUARIO==</button>
+}
+<button routerLink="/users">VOLVER</button>

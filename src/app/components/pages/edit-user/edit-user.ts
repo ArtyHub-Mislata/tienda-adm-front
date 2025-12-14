@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { CategoryModel } from '../../../models/CategoryModel';
 import { HttpService } from '../../../services/http-service';
@@ -8,7 +8,7 @@ import { UserModel } from '../../../models/UserModel';
 
 @Component({
   selector: 'app-edit-user',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './edit-user.html',
   styleUrl: './edit-user.scss',
 })

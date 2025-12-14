@@ -18,8 +18,9 @@ export class HttpService {
   constructor(private httpClient: HttpClient){}
 
   //CRUD ARTWORKS
-  getArtworksOfUser(id:string): Observable<PageResponse<ArtWorkModel>> {
-    return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/artworks`)
+  
+  getArtworksByCategoryId(id:string): Observable<PageResponse<ArtWorkModel>> {
+    return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/categories/${id}/artworks`)
   }
 
   getAllArtworks(): Observable<PageResponse<ArtWorkModel>>{

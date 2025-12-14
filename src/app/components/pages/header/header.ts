@@ -9,16 +9,33 @@ import { HttpService } from '../../../services/http-service';
   styleUrl: './header.scss',
 })
 export class Header {
+  isLogged = false;
   constructor(private httpService: HttpService){}
 
-  //TODO habría que hacer un login service que gestionara el login y el logout
+  ngOnInit() {
+    this.checkIsLogged();
+  }
+
   logOut(){
     this.httpService.logout().subscribe({
       next : () =>{
         console.log("Sesion cerrada con éxito")
+        this.isLogged = false;
       }, 
       error: (error) => { 
         console.log("Error al cerrar sesión", error)
+      }
+    })
+  }
+
+  checkIsLogged(){
+    this.httpService.isLogged().subscribe({
+      next : () =>{
+        console.log("Sesion iniciada con éxito")
+        this.isLogged = true;
+      }, 
+      error: (error) => { 
+        console.log("Error al iniciar sesión", error)
       }
     })
   }

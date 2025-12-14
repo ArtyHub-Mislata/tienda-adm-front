@@ -1,61 +1,109 @@
-@if(user){
-    <form>
-        <label>Nombre
-            <input type="text" [(ngModel)]="user.name" name="name">
-        </label>
+@if (user) {
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card shadow-sm w-100" style="max-width: 600px;">
+            <div class="card-body">
 
-        <br><br>
+                <h4 class="card-title text-center mb-4">
+                    Editar usuario
+                </h4>
 
-        <label>Email
-            <input type="email" [(ngModel)]="user.email" name="email">
-        </label>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="user.name"
+                            name="name">
+                    </div>
 
-        <br><br>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            [(ngModel)]="user.email"
+                            name="email">
+                    </div>
 
-        <label>Contraseña
-            <input type="text" [(ngModel)]="user.password" name="password">
-        </label>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="user.password"
+                            name="password">
+                    </div>
 
-        <br><br>
+                    <div class="mb-3">
+                        <label class="form-label">Número de cuenta</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="user.nAccount"
+                            name="nAccount">
+                    </div>
 
-        <label>Número de Cuenta
-            <input type="text" [(ngModel)]="user.nAccount" name="nAccount">
-        </label>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción</label>
+                        <textarea
+                            class="form-control"
+                            rows="3"
+                            [(ngModel)]="user.description"
+                            name="description">
+                        </textarea>
+                    </div>
 
-        <br><br>
+                    <div class="mb-3">
+                        <label class="form-label">Dirección</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="user.address"
+                            name="address">
+                    </div>
 
-        <label>Descripción
-            <textarea [(ngModel)]="user.description" name="description"></textarea>
-        </label>
+                    <div class="mb-3">
+                        <label class="form-label">URL de imagen de perfil</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="user.imageProfileUrl"
+                            name="imageProfileUrl">
+                    </div>
 
-        <br><br>
+                    <div class="mb-4">
+                        <label class="form-label">Rol</label>
+                        <select
+                            class="form-select"
+                            name="role"
+                            [(ngModel)]="user.role">
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="USER">USER</option>
+                        </select>
+                    </div>
 
-        <label>Dirección
-            <input type="text" [(ngModel)]="user.address" name="address">
-        </label>
+                    <div class="d-flex justify-content-between">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            routerLink="/users">
+                            Cancelar
+                        </button>
 
-        <br><br>
-
-        <label>URL de Imagen de Perfil
-            <input type="text" [(ngModel)]="user.imageProfileUrl" name="imageProfileUrl">
-        </label>
-
-        <br><br>
-
-        <label>Rol
-            <select name="role" [(ngModel)]="user.role">
-                <option value= "ADMIN">ADMIN</option>
-                <option value= "USER">USER</option>
-            </select>
-        </label>
-
-        <br><br>
-
-        <button (click)="save()">GUARDAR</button>
-        <button routerLink="/users">CANCELAR</button>
-    </form>
-}
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="save()">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+} 
 
 @if(!user) {
-    <p>Cargando usuario...</p>
+    <p class="text-center mt-5">Cargando usuario...</p>
 }

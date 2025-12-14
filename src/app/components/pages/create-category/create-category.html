@@ -1,11 +1,39 @@
-<h1>CREANDO CATEGORIA</h1>
-@if(category){
-    <form>
-        <label>Nombre
-        <input type="text" [(ngModel)]="category.name" name="nombre">
-        </label>
+@if (category) {
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card shadow-sm w-100" style="max-width: 400px;">
+            <div class="card-body">
 
-        <button (click)="save()">SAVE</button>
-        <button routerLink="/categories">CANCEL</button>
-    </form>
-}   
+                <h4 class="card-title text-center mb-4">
+                    Crear categoría
+                </h4>
+
+                <form>
+
+                    <div class="mb-4">
+                        <label class="form-label">Nombre</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="category.name"
+                            name="nombre">
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            routerLink="/categories">
+                            Cancelar
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="save()">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}

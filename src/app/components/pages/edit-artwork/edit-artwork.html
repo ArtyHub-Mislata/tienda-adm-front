@@ -1,39 +1,80 @@
-@if(artwork){
-    <form>
-        <label>Nombre
-        <input type="text" [(ngModel)]="artwork.name" name="nombre">
-        </label>
+@if (artwork) {
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card shadow-sm w-100" style="max-width: 500px;">
+            <div class="card-body">
 
-        <br><br>
+                <h4 class="card-title text-center mb-4">
+                    Editar Artwork
+                </h4>
 
-        <label>Descripción
-        <input type="text" [(ngModel)]="artwork.description" name="description">
-        </label>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="artwork.name"
+                            name="nombre">
+                    </div>
 
-        <br><br>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="artwork.description"
+                            name="description">
+                    </div>
 
-        <label>URL Imagen
-        <input type="text" [(ngModel)]="artwork.image" name="image">
-        </label>
+                    <div class="mb-3">
+                        <label class="form-label">URL Imagen</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            [(ngModel)]="artwork.image"
+                            name="image">
+                    </div>
 
-        <br><br>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="artwork.price"
+                            name="price">
+                    </div>
 
-        <label>Price
-        <input type="number" [(ngModel)]="artwork.price" name="price">
-        </label>
+                    <div class="mb-4">
+                        <label class="form-label">Categoría</label>
+                        <select
+                            class="form-select"
+                            name="category"
+                            [(ngModel)]="artwork.categoryDto">
+                            @for (category of categories; track category.id) {
+                                <option [ngValue]="category">
+                                    {{ category.name }}
+                                </option>
+                            }
+                        </select>
+                    </div>
 
-        <br><br>
+                    <div class="d-flex justify-content-between">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            routerLink="/artworks">
+                            Cancelar
+                        </button>
 
-        <label>category
-            <select name="category" [(ngModel)] = "artwork.categoryDto">
-                @for (category of categories; track category.id) {
-                    <option [ngValue]="category">{{category.name}}</option>
-                }
-            </select>
-        </label>
-        <br><br>
-
-        <button (click)="save()">SAVE</button>
-        <button routerLink="/artworks">CANCEL</button>
-    </form>
-}   
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="save()">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}

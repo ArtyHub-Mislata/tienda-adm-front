@@ -1,39 +1,64 @@
-<br>
-<h3>Listado de Artworks (Pa probar si funciona el getAll)</h3>
-<button routerLink="/users/new">CREATE USER</button>
-<div style="width:90%">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-               <th>ID</th> 
-               <th>NAME</th> 
-               <th>EMAIL</th> 
-               <th>PASSWORD</th> 
-               <th>NºACCOUNT</th> 
-               <th>DESCRIPCION</th>
-               <th>ADDRESS</th>
-               <th>AVATAR</th> 
-               <th>ROLE</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (user of usermodelList; track user.id) {
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Listado de Usuarios</h3>
+        <button class="btn btn-success" routerLink="/users/new">
+            Crear Usuario
+        </button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle text-center">
+            <thead class="table-light">
                 <tr>
-                    <td>{{user.id}}</td>
-                    <td><a routerLink="{{user.id}}">{{user.name}}</a></td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.password}}</td>
-                    <td>{{user.nAccount}}</td>
-                    <td>{{user.description}}</td>
-                    <td>{{user.address}}</td>
-                    <td><img width="100px" src="{{user.imageProfileUrl}}"></td>
-                    <td>{{user.role}}</td>
-                    <td>
-                        <a routerLink="/users/{{user.id}}/delete" class="btn btn-danger">Borrar</a>
-                        <a class="btn btn-primary" routerLink="/users/{{user.id}}/edit">Modificar</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Contraseña</th>
+                    <th>Nº Cuenta</th>
+                    <th>Descripción</th>
+                    <th>Dirección</th>
+                    <th>Avatar</th>
+                    <th>Rol</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @for (user of usermodelList; track user.id) {
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>
+                            <a routerLink="{{ user.id }}" class="fw-semibold text-decoration-none">
+                                {{ user.name }}
+                            </a>
+                        </td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.nAccount }}</td>
+                        <td class="text-start">{{ user.description }}</td>
+                        <td>{{ user.address }}</td>
+                        <td>
+                            <img
+                                src="{{ user.imageProfileUrl }}"
+                                width="100"
+                                class="img-fluid rounded"
+                                alt="Avatar">
+                        </td>
+                        <td>{{ user.role }}</td>
+                        <td class="d-flex justify-content-center gap-2">
+                            <a
+                                class="btn btn-primary btn-sm"
+                                routerLink="/users/{{ user.id }}/edit">
+                                Modificar
+                            </a>
+                            <a
+                                routerLink="/users/{{ user.id }}/delete"
+                                class="btn btn-danger btn-sm">
+                                Borrar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

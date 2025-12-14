@@ -1,56 +1,68 @@
-@if(user){
-    <div class="card" style="width: 400PX;">
-        <img [src]="user.imageProfileUrl" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">{{user.name}}</h5>
-            <p class="card-text">{{user.description}}</p>
-            <p class="card-text">
-                <strong>Email:</strong> {{user.email}}
-            </p>
-            <p class="card-text">
-                <strong>Dirección:</strong> {{user.address}}
-            </p>
-            <div class="d-flex justify-content-between">
-                <span class="badge bg-primary">{{user.role}}</span>
-                <small class="text-muted">Cuenta: {{user.nAccount}}</small>
+@if(user) {
+    <div class="container mt-5">
+
+        <div class="d-flex justify-content-center mb-4">
+            <div class="card shadow-sm" style="max-width: 400px; width: 100%;">
+                <img 
+                    [src]="user.imageProfileUrl" 
+                    class="card-img-top img-fluid" 
+                    alt="Imagen de perfil">
+
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ user.name }}</h5>
+                    <p class="card-text">{{ user.description }}</p>
+                    <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+                    <p class="card-text"><strong>Dirección:</strong> {{ user.address }}</p>
+
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="badge bg-primary">{{ user.role }}</span>
+                        <small class="text-muted">Cuenta: {{ user.nAccount }}</small>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <button class="btn btn-primary" routerLink="/users">VOLVER</button>
-    <h3>OBRAS DEL USUARIO</h3>
-    <button routerLink="/artworks/new/{{user.id}}">CREAR OBRA</button>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-               <th>ID</th> 
-               <th>NOMBRE</th> 
-               <th>DESCRIPCION</th> 
-               <th>IMAGEN</th> 
-               <th>PRECIO</th> 
-               <th>CATEGORIA</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @if (artworks) {
-                @for (artwork of artworks; track artwork.id) {
+        <div class="d-flex justify-content-between mb-3">
+            <button class="btn btn-primary" routerLink="/users">Volver</button>
+            <button class="btn btn-success" routerLink="/artworks/new/{{user.id}}">Crear obra</button>
+        </div>
+
+        <h4 class="mb-3">Obras del usuario</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle text-center">
+                <thead class="table-light">
                     <tr>
-                        <td>{{artwork.id}}</td>
-                        <td><a routerLink="/artworks/{{artwork.id}}">{{artwork.name}}</a></td>
-                        <td>{{artwork.description}}</td>
-                        <td><img width="100px" src="{{artwork.image}}"></td>
-                        <td>{{artwork.price}}</td>
-                        <td>{{artwork.categoryDto.name}}</td>
-                        
-                        <td>
-                            <a routerLink="/artworks/{{artwork.id}}/delete" class="btn btn-danger">Borrar</a>
-                            <a class="btn btn-primary" routerLink="/artworks/{{artwork.id}}/edit">Modificar</a>
-                        </td>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Imagen</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
-    
+                </thead>
+                <tbody>
+                    @for (artwork of artworks; track artwork.id) {
+                        <tr>
+                            <td>{{ artwork.id }}</td>
+                            <td>
+                                <a routerLink="/artworks/{{artwork.id}}" class="fw-semibold text-decoration-none">
+                                    {{ artwork.name }}
+                                </a>
+                            </td>
+                            <td class="text-start">{{ artwork.description }}</td>
+                            <td>
+                                <img src="{{artwork.image}}" width="100" class="img-fluid rounded" alt="Artwork image">
+                            </td>
+                            <td>{{ artwork.price }}</td>
+                            <td>{{ artwork.categoryDto.name }}</td>
+                            <td class="d-flex justify-content-center gap-2">
+                                <a class="btn btn-primary btn-sm" routerLink="/artworks/{{artwork.id}}/edit">Modificar</a>
+                                <a class="btn btn-danger btn-sm" routerLink="/artworks/{{artwork.id}}/delete">Borrar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 }

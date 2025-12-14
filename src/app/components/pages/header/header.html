@@ -1,22 +1,47 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <h2 [style.color]="'orange'">Tienda Admin Front</h2>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark px-4">
+    <div class="container-fluid">
 
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="">Inicio</a>      
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="users">Usuarios</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="artworks">Artworks</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="categories">Categories</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="login" (click)="logOut()">LOG OUT</a>
-        </li>
-        
-    </ul>
+        <a class="navbar-brand fw-bold" [style.color]="'orange'" href="#">
+            Tienda Admin Front
+        </a>
+
+        <button 
+            class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="users">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="artworks">Artworks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="categories">Categorías</a>
+                </li>
+                @if(isLogged){
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="login" (click)="logOut()">Log Out</a>
+                </li>
+                }
+                @else{
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="login">Log In</a>
+                </li>
+                }
+            </ul>
+        </div>
+
+    </div>
 </nav>

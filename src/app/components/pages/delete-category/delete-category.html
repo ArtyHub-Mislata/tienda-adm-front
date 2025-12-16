@@ -1,13 +1,13 @@
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card shadow-sm w-100" style="max-width: 1100px;">
-        <div class="card-body">
+<div class="l-flex l-flex--justify-center g--margin-top-5">
+    <div class="c-card g--width-400">
+        <div class="c-card__body">
 
-            <h3 class="card-title text-center mb-4">
+            <h3 class="c-card__title c-card__title-m4">
                 Eliminar categoría
             </h3>
 
             @if (category) {
-                <h5 class="text-center mb-4">
+                <h5 class="c-card__text c-card__text-m4">
                     Categoría: <strong>{{ category.name }}</strong>
                 </h5>
             }
@@ -60,15 +60,12 @@
                                     <td>{{ artwork.price }}</td>
                                     <td>{{ artwork.categoryDto.name }}</td>
 
-                                    <td class="d-flex justify-content-center gap-2">
-                                        <a
-                                            class="btn btn-primary btn-sm"
+                                    <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                        <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
                                             routerLink="/artworks/{{ artwork.id }}/edit">
                                             Modificar
                                         </a>
-                                        <button
-                                            type="button"
-                                            class="btn btn-danger btn-sm"
+                                        <button c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
                                             (click)="deleteArtWork(artwork.id)">
                                             Borrar
                                         </button>
@@ -81,19 +78,15 @@
             }
 
             <div class="text-center mt-4">
-                <button
-                    type="button"
-                    class="btn btn-secondary"
+                <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
                     routerLink="/users">
                     Volver
-                </button>
+                </a>
             </div>
 
             @if (artworks && artworks.length == 0) {
                 <div class="text-center my-4">
-                    <button
-                        type="button"
-                        class="btn btn-danger btn-lg"
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="grande"
                         (click)="deleteCategory()">
                         Eliminar categoría
                     </button>

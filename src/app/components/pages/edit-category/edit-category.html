@@ -1,14 +1,14 @@
 @if (category) {
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="card shadow-sm w-100" style="max-width: 400px;">
-            <div class="card-body">
+    <div class="l-flex l-flex--justify-center g--margin-top-5">
+        <div class="c-card g--width-400">
+            <div class="c-card__body">
 
-                <h4 class="card-title text-center mb-4">
+                <h4 class="c-card__title c-card__title-m4">
                     Editar categoría
                 </h4>
 
                 <form>
-                    <div class="mb-4">
+                    <div class="g--margin-bottom-4">
                         <label class="form-label">Nombre</label>
                         <input
                             type="text"
@@ -17,17 +17,13 @@
                             name="nombre">
                     </div>
 
-                    <div class="d-flex justify-content-between">
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
+                    <div class="l-flex l-flex--justify-between">
+                        <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
                             routerLink="/categories">
                             Cancelar
-                        </button>
+                        </a>
 
-                        <button
-                            type="button"
-                            class="btn btn-primary"
+                        <button c-button funcion="normal" importancia="primaria" tamano="mediano"
                             (click)="save()">
                             Guardar
                         </button>

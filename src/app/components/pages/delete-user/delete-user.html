@@ -1,37 +1,37 @@
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card shadow-sm w-100" style="max-width: 1100px;">
-        <div class="card-body">
+<div class="l-flex l-flex--justify-center g--margin-top-5">
+    <div class="c-card g--width-400">
+        <div class="c-card__body">
 
-            <h3 class="card-title text-center mb-4">
+            <h3 class="c-card__title c-card__title-m4">
                 Eliminar usuario
             </h3>
 
             @if (user) {
-                <div class="d-flex justify-content-center mb-4">
-                    <div class="card shadow-sm" style="max-width: 400px; width: 100%;">
+                <div class="l-flex l-flex--justify-center g--margin-bottom-5">
+                    <div class="c-card c-card--user-delete">
                         <img
                             [src]="user.imageProfileUrl"
                             class="card-img-top img-fluid"
                             alt="Imagen de perfil">
 
-                        <div class="card-body text-center">
-                            <h5 class="card-title">
+                        <div class="c-card__body">
+                            <h5 class="c-card__title">
                                 {{ user.name }}
                             </h5>
 
-                            <p class="card-text">
+                            <p class="c-card__text">
                                 {{ user.description }}
                             </p>
 
-                            <p class="card-text mb-1">
+                            <p class="c-card__text c-card__text-m1">
                                 <strong>Email:</strong> {{ user.email }}
                             </p>
 
-                            <p class="card-text mb-2">
+                            <p class="c-card__text c-card__text-m2">
                                 <strong>Dirección:</strong> {{ user.address }}
                             </p>
 
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="l-flex l-flex--justify-between l-flex--align-center">
                                 <span class="badge bg-primary">
                                     {{ user.role }}
                                 </span>
@@ -93,15 +93,12 @@
                                     <td>{{ artwork.price }}</td>
                                     <td>{{ artwork.categoryDto.name }}</td>
 
-                                    <td class="d-flex justify-content-center gap-2">
-                                        <a
-                                            class="btn btn-primary btn-sm"
+                                    <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                        <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
                                             routerLink="/artworks/{{ artwork.id }}/edit">
                                             Modificar
                                         </a>
-                                        <button
-                                            type="button"
-                                            class="btn btn-danger btn-sm"
+                                        <button c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
                                             (click)="borrarArtwork(artwork.id)">
                                             Borrar
                                         </button>
@@ -115,19 +112,15 @@
 
             
             <div class="text-center mt-4">
-                <button
-                    type="button"
-                    class="btn btn-secondary"
+                <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
                     routerLink="/users">
                     Volver
-                </button>
+                </a>
             </div>
 
             @if (artworks && artworks.length == 0) {
                 <div class="text-center my-4">
-                    <button
-                        type="button"
-                        class="btn btn-danger btn-lg"
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="grande"
                         (click)="eliminarUsuario()">
                         Eliminar usuario
                     </button>

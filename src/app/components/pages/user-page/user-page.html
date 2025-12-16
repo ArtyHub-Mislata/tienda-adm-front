@@ -1,20 +1,20 @@
 @if(user) {
-    <div class="container mt-5">
+    <div class="l-flex l-flex--justify-center g--margin-top-5">
 
-        <div class="d-flex justify-content-center mb-4">
-            <div class="card shadow-sm" style="max-width: 400px; width: 100%;">
+        <div class="l-flex l-flex--justify-center g--margin-bottom-4">
+            <div class="c-card g--width-400">
                 <img 
                     [src]="user.imageProfileUrl" 
                     class="card-img-top img-fluid" 
                     alt="Imagen de perfil">
 
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{ user.name }}</h5>
-                    <p class="card-text">{{ user.description }}</p>
-                    <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
-                    <p class="card-text"><strong>Dirección:</strong> {{ user.address }}</p>
+                <div class="c-card__body">
+                    <h5 class="c-card__title">{{ user.name }}</h5>
+                    <p class="c-card__text">{{ user.description }}</p>
+                    <p class="c-card__text"><strong>Email:</strong> {{ user.email }}</p>
+                    <p class="c-card__text"><strong>Dirección:</strong> {{ user.address }}</p>
 
-                    <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="l-flex l-flex--justify-between l-flex--align-center g--margin-top-3">
                         <span class="badge bg-primary">{{ user.role }}</span>
                         <small class="text-muted">Cuenta: {{ user.nAccount }}</small>
                     </div>
@@ -22,12 +22,18 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-between mb-3">
-            <button class="btn btn-primary" routerLink="/users">Volver</button>
-            <button class="btn btn-success" routerLink="/artworks/new/{{user.id}}">Crear obra</button>
+        <div class="l-flex l-flex--justify-between l-flex--align-center g--margin-bottom-3">
+            <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
+                routerLink="/users">
+                Volver
+            </a>
+            <a c-button funcion="normal" importancia="primaria" tamano="mediano"
+                routerLink="/artworks/new/{{user.id}}">
+                Crear obra
+            </a>
         </div>
 
-        <h4 class="mb-3">Obras del usuario</h4>
+        <h4 class="g--margin-bottom-3">Obras del usuario</h4>
         <div class="table-responsive">
             <table class="table table-bordered table-striped align-middle text-center">
                 <thead class="table-light">
@@ -55,9 +61,15 @@
                             </td>
                             <td>{{ artwork.price }}</td>
                             <td>{{ artwork.categoryDto.name }}</td>
-                            <td class="d-flex justify-content-center gap-2">
-                                <a class="btn btn-primary btn-sm" routerLink="/artworks/{{artwork.id}}/edit">Modificar</a>
-                                <a class="btn btn-danger btn-sm" routerLink="/artworks/{{artwork.id}}/delete">Borrar</a>
+                            <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
+                                    routerLink="/artworks/{{artwork.id}}/edit">
+                                    Modificar
+                                </a>
+                                <a c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
+                                    routerLink="/artworks/{{artwork.id}}/delete">
+                                    Borrar
+                                </a>
                             </td>
                         </tr>
                     }

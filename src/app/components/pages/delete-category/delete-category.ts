@@ -3,10 +3,11 @@ import { CategoryModel } from '../../../models/CategoryModel';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
+import { CButton } from "../../ui/c-button/c-button";
 
 @Component({
   selector: 'app-delete-category',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './delete-category.html',
   styleUrl: './delete-category.scss',
 })

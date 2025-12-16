@@ -1,17 +1,16 @@
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card shadow-sm w-100" style="max-width: 800px;">
-        <div class="card-body">
+<div class="l-flex l-flex--justify-center g--margin-top-5">
+    <div class="c-card g--width-800">
+        <div class="c-card__body">
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="card-title mb-0">
+            <div class="l-flex l-flex--justify-between l-flex--align-center g--margin-bottom-4">
+                <h3 class="c-card__title c-card__title--m0">
                     Listado de Categorías
                 </h3>
 
-                <button
-                    routerLink="/categories/new"
-                    class="btn btn-success">
+                <a c-button funcion="normal" importancia="primaria" tamano="normal"
+                    routerLink="/categories/new">
                     Crear categoría
-                </button>
+                </a>
             </div>
 
             <div class="table-responsive">
@@ -31,15 +30,13 @@
                                     <td class="fw-semibold">
                                         {{ category.name }}
                                     </td>
-                                    <td class="d-flex justify-content-center gap-2">
-                                        <a
-                                            routerLink="/categories/{{ category.id }}/edit"
-                                            class="btn btn-primary btn-sm">
+                                    <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                        <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
+                                            routerLink="/categories/{{ category.id }}/edit">
                                             Modificar
                                         </a>
-                                        <a
-                                            routerLink="/categories/{{ category.id }}/delete"
-                                            class="btn btn-danger btn-sm">
+                                        <a c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
+                                            routerLink="/categories/{{ category.id }}/delete">
                                             Borrar
                                         </a>
                                     </td>

@@ -1,29 +1,29 @@
 @if (artwork) {
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="card shadow-sm w-100" style="max-width: 420px;">
+    <div class="l-flex l-flex--justify-center g--margin-top-5">
+        <div class="c-card g--width-500">
 
             <img
                 [src]="artwork.image"
                 class="card-img-top img-fluid"
                 alt="Artwork image">
 
-            <div class="card-body">
+            <div class="c-card__body">
 
-                <h5 class="card-title text-center mb-3">
+                <h5 class="c-card__title c-card__title--center">
                     {{ artwork.name }}
                 </h5>
 
-                <p class="card-text text-center">
+                <p class="c-card__text">
                     {{ artwork.description }}
                 </p>
 
                 <hr>
 
-                <p class="card-text text-center mb-3">
+                <p class="c-card__text c-card__text-m3">
                     <strong>Precio:</strong> {{ artwork.price }} $
                 </p>
 
-                <div class="d-flex justify-content-between mb-3">
+                <div class="l-flex l-flex--justify-between g--margin-top-3">
                     <span class="text-muted">
                         Categoría: {{ artwork.categoryDto.name }}
                     </span>
@@ -32,15 +32,12 @@
                     </span>
                 </div>
 
-                <div class="d-flex justify-content-between mt-4">
-                    <a
-                        class="btn btn-primary"
+                <div class="l-flex l-flex--justify-between g--margin-top-4">
+                    <a c-button funcion="alternativa" importancia="secundaria" tamano="normal"
                         routerLink="/artworks">
                         Volver
                     </a>
-                    <button
-                        type="button"
-                        class="btn btn-danger"
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="normal"
                         (click)="delete()">
                         Borrar
                     </button>

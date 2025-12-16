@@ -1,8 +1,8 @@
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card shadow-sm w-100" style="max-width: 1200px;">
-        <div class="card-body">
+<div class="l-flex l-flex--justify-center g--margin-top-5">
+    <div class="c-card g--width-1200">
+        <div class="c-card__body">
 
-            <h3 class="card-title text-center mb-4">
+            <h3 class="c-card__title c-card__title-m4">
                 Listado de Artworks
             </h3>
 
@@ -47,15 +47,13 @@
                                     <td>{{ artwork.categoryDto.name }}</td>
                                     <td>{{ artwork.userDto.id }}</td>
 
-                                    <td class="d-flex justify-content-center gap-2">
-                                        <a
-                                            routerLink="/artworks/{{ artwork.id }}/edit"
-                                            class="btn btn-primary btn-sm">
+                                    <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                        <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
+                                            routerLink="/artworks/{{ artwork.id }}/edit">
                                             Modificar
                                         </a>
-                                        <a
-                                            routerLink="/artworks/{{ artwork.id }}/delete"
-                                            class="btn btn-danger btn-sm">
+                                        <a c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
+                                            routerLink="/artworks/{{ artwork.id }}/delete">
                                             Borrar
                                         </a>
                                     </td>

@@ -1,3 +1,5 @@
+@use "../01_utilities" as *;
+
 .c-card {
     background-color: var(--mlt-sys-color-white);
     border-radius: var(--mlt-sys-border-radius-4);
@@ -26,7 +28,7 @@
         &-m4 {
             margin-bottom: var(--mlt-sys-margin-bottom-4);
         }
-        &__login {
+        &-login {
             font-weight: var(--mlt-sys-fw-bold);
         }
     }

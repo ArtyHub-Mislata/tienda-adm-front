@@ -1,3 +1,5 @@
+@use "../01_utilities" as *;
+
 .g--width-400 {
     max-width: var(--mlt-sys-width-400);
 }

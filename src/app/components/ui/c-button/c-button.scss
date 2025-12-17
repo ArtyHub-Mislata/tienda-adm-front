@@ -1,4 +1,7 @@
-.boton {
+@use "../../../scss/01_utilities" as *;
+
+button.boton,
+a.boton {
     --boton-color-strong:var(--mlt-sys-color-principal-5);
     --boton-color-weak:var(--mlt-sys-color-blanco-9);
 
@@ -28,57 +31,71 @@
     border-color: var(--boton-border-color);
     background-color: var(--boton-background-color);
     color: var(--boton-text-color);
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
   
-.boton--funcion-normal {
+button.boton--funcion-normal,
+a.boton--funcion-normal {
     --boton-border-color: var(--mlt-sys-color-principal-5);
     --boton-background-color: var(--mlt-sys-color-principal-5);
     --boton-text-color: #ffffff;
 }
   
-.boton--funcion-alternativa {
+button.boton--funcion-alternativa,
+a.boton--funcion-alternativa {
     --boton-border-color: var(--mlt-sys-color-alternativo-5);
     --boton-background-color: var(--mlt-sys-color-alternativo-5);
     --boton-text-color: #ffffff;
 }
   
-.boton--funcion-peligrosa {
+button.boton--funcion-peligrosa,
+a.boton--funcion-peligrosa {
     --boton-border-color: var(--mlt-sys-color-rojo-5);
     --boton-background-color: var(--mlt-sys-color-rojo-5);
     --boton-text-color: #ffffff;
 }
 
-.boton--importancia-primaria {
+button.boton--importancia-primaria,
+a.boton--importancia-primaria {
     --boton-border-color:var(--boton-color-strong);
     --boton-background-color:var(--boton-color-strong);
     --boton-text-color: var(--boton-color-weak);
 }
 
-.boton--importancia-secundaria {
+button.boton--importancia-secundaria,
+a.boton--importancia-secundaria {
     --boton-border-color:var(--boton-color-strong);
     --boton-background-color:var(--boton-color-weak);
     --boton-text-color: var(--boton-color-strong);
 }
 
-.boton--importancia-terciaria {
+button.boton--importancia-terciaria,
+a.boton--importancia-terciaria {
     --boton-border-color:var(--boton-color-weak);
     --boton-background-color:var(--boton-color-weak);
     --boton-text-color: var(--boton-color-strong);
 }
 
-.boton--tamano-pequeno {
+button.boton--tamano-pequeno,
+a.boton--tamano-pequeno {
     --boton-font-size: var(--mlt-sys-font-size-3);
     --boton-padding: var(--mlt-sys-padding-2);
     --boton-border-radius: var(--mlt-sys-border-radius-1);
 }
 
-.boton--tamano-mediano {
+button.boton--tamano-mediano,
+a.boton--tamano-mediano {
     --boton-font-size: var(--mlt-sys-font-size-4);
     --boton-padding: var(--mlt-sys-padding-3);
     --boton-border-radius: var(--mlt-sys-border-radius-2);
 }
 
-.boton--tamano-grande {
+button.boton--tamano-grande,
+a.boton--tamano-grande {
     --boton-font-size: var(--mlt-sys-font-size-5);
     --boton-padding: var(--mlt-sys-padding-4);
     --boton-border-radius: var(--mlt-sys-border-radius-3);

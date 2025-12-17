@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-artwork-page',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './artwork-page.html',
   styleUrl: './artwork-page.scss',
 })

@@ -5,10 +5,11 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { CategoryModel } from '../../../models/CategoryModel';
 import { FormsModule } from '@angular/forms';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-create-artwork',
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, CButton],
   templateUrl: './create-artwork.html',
   styleUrl: './create-artwork.scss',
 })

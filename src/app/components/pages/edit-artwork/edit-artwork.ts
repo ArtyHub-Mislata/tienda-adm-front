@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { HttpService } from '../../../services/http-service';
 import { CategoryModel } from '../../../models/CategoryModel';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-edit-artwork',
-  imports: [FormsModule],
+  imports: [FormsModule, CButton, RouterLink],
   templateUrl: './edit-artwork.html',
   styleUrl: './edit-artwork.scss',
 })

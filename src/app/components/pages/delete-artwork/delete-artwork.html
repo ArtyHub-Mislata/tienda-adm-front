@@ -9,7 +9,7 @@
 
             <div class="c-card__body">
 
-                <h5 class="c-card__title c-card__title--center">
+                <h5 class="c-card__title">
                     {{ artwork.name }}
                 </h5>
 
@@ -19,7 +19,7 @@
 
                 <hr>
 
-                <p class="c-card__text c-card__text-m3">
+                <p class="c-card__text">
                     <strong>Precio:</strong> {{ artwork.price }} $
                 </p>
 
@@ -33,11 +33,11 @@
                 </div>
 
                 <div class="l-flex l-flex--justify-between g--margin-top-4">
-                    <a c-button funcion="alternativa" importancia="secundaria" tamano="normal"
+                    <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
                         routerLink="/artworks">
                         Volver
                     </a>
-                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="normal"
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="mediano"
                         (click)="delete()">
                         Borrar
                     </button>

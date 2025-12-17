@@ -3,10 +3,11 @@ import { UserModel } from '../../../models/UserModel';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-user-page',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './user-page.html',
   styleUrl: './user-page.scss',
 })

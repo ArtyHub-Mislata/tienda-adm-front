@@ -3,10 +3,11 @@ import { UserModel } from '../../../models/UserModel';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-create-user',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CButton],
   templateUrl: './create-user.html',
   styleUrl: './create-user.scss',
 })

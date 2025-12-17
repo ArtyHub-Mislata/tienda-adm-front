@@ -5,10 +5,11 @@ import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { CategoryModel } from '../../../models/CategoryModel';
 import { HttpService } from '../../../services/http-service';
 import { UserModel } from '../../../models/UserModel';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-edit-user',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CButton],
   templateUrl: './edit-user.html',
   styleUrl: './edit-user.scss',
 })

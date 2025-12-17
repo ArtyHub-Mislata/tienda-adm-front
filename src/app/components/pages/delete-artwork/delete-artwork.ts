@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { HttpService } from '../../../services/http-service';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-delete-artwork',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './delete-artwork.html',
   styleUrl: './delete-artwork.scss',
 })

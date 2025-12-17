@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { HttpService } from '../../../services/http-service';
 import { UserModel } from '../../../models/UserModel';
 import { RouterLink } from "@angular/router";
+import { CButton } from '../../ui/c-button/c-button';
 @Component({
   selector: 'app-user-list-page',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './user-list-page.html',
   styleUrl: './user-list-page.scss',
 })

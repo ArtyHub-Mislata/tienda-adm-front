@@ -3,10 +3,11 @@ import { UserModel } from '../../../models/UserModel';
 import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-delete-user',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './delete-user.html',
   styleUrl: './delete-user.scss',
 })

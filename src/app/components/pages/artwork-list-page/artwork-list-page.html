@@ -2,7 +2,7 @@
     <div class="c-card g--width-1200">
         <div class="c-card__body">
 
-            <h3 class="c-card__title c-card__title-m4">
+            <h3 class="c-card__title g--margin-bottom-5">
                 Listado de Artworks
             </h3>
 
@@ -17,6 +17,7 @@
                             <th>PRECIO</th>
                             <th>CATEGORÍA</th>
                             <th>USUARIO</th>
+                            <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,7 +27,7 @@
                                     <td>{{ artwork.id }}</td>
 
                                     <td>
-                                        <a routerLink="{{ artwork.id }}" class="fw-semibold text-decoration-none">
+                                        <a routerLink="{{ artwork.id }}" class="fw-semibold">
                                             {{ artwork.name }}
                                         </a>
                                     </td>
@@ -43,9 +44,9 @@
                                             alt="Artwork image">
                                     </td>
 
-                                    <td>{{ artwork.price }}</td>
+                                    <td>{{ artwork.price }}€</td>
                                     <td>{{ artwork.categoryDto.name }}</td>
-                                    <td>{{ artwork.userDto.id }}</td>
+                                    <td>{{ artwork.userDto.name }}</td>
 
                                     <td class="l-flex l-flex--justify-center l-flex--gap-2">
                                         <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"

@@ -3,10 +3,11 @@ import { ArtWorkModel } from '../../../models/ArtWorkModel';
 import { HttpService } from '../../../services/http-service';
 import { PageResponse } from '../../../models/PageResponseModel';
 import { RouterLink } from "@angular/router";
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-artwork-list-page',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './artwork-list-page.html',
   styleUrl: './artwork-list-page.scss',
 })

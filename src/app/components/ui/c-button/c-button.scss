@@ -61,23 +61,23 @@ a.boton--funcion-peligrosa {
 
 button.boton--importancia-primaria,
 a.boton--importancia-primaria {
-    --boton-border-color:var(--boton-color-strong);
-    --boton-background-color:var(--boton-color-strong);
-    --boton-text-color: var(--boton-color-weak);
+    border-color: var(--boton-border-color);
+    background-color: var(--boton-background-color);
+    color: var(--boton-text-color);
 }
 
 button.boton--importancia-secundaria,
 a.boton--importancia-secundaria {
-    --boton-border-color:var(--boton-color-strong);
-    --boton-background-color:var(--boton-color-weak);
-    --boton-text-color: var(--boton-color-strong);
+    border-color: var(--boton-border-color);
+    background-color: var(--boton-background-color);
+    color: var(--boton-text-color);
 }
 
 button.boton--importancia-terciaria,
 a.boton--importancia-terciaria {
-    --boton-border-color:var(--boton-color-weak);
-    --boton-background-color:var(--boton-color-weak);
-    --boton-text-color: var(--boton-color-strong);
+    border-color: var(--boton-border-color);
+    background-color: var(--boton-background-color);
+    color: var(--boton-text-color);
 }
 
 button.boton--tamano-pequeno,

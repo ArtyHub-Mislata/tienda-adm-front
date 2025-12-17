@@ -3,10 +3,11 @@ import { CategoryModel } from '../../../models/CategoryModel';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { FormsModule } from '@angular/forms';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-edit-category',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CButton],
   templateUrl: './edit-category.html',
   styleUrl: './edit-category.scss',
 })

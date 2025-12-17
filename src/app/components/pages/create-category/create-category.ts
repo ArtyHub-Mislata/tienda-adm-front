@@ -3,10 +3,11 @@ import { CategoryModel } from '../../../models/CategoryModel';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from "@angular/router";
 import { HttpService } from '../../../services/http-service';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-create-category',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CButton],
   templateUrl: './create-category.html',
   styleUrl: './create-category.scss',
 })

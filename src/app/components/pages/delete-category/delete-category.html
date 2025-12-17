@@ -1,20 +1,20 @@
 <div class="l-flex l-flex--justify-center g--margin-top-5">
-    <div class="c-card g--width-400">
+    <div class="c-card g--width-1100">
         <div class="c-card__body">
 
-            <h3 class="c-card__title c-card__title-m4">
+            <h3 class="c-card__title g--margin-bottom-5">
                 Eliminar categoría
             </h3>
 
             @if (category) {
-                <h5 class="c-card__text c-card__text-m4">
+                <h5 class="c-card__text g--margin-bottom-5">
                     Categoría: <strong>{{ category.name }}</strong>
                 </h5>
             }
 
             @if (artworks && artworks.length > 0) {
 
-                <div class="alert alert-warning text-center">
+                <div class="alert alert-warning text-center g--margin-bottom-5">
                     NO PUEDES ELIMINAR UNA CATEGORÍA QUE ESTÉ ASIGNADA A ARTWORKS.  
                     ELIMINA PRIMERO LOS ARTWORKS ASOCIADOS.
                 </div>
@@ -79,14 +79,14 @@
 
             <div class="text-center mt-4">
                 <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
-                    routerLink="/users">
+                    routerLink="/categories">
                     Volver
                 </a>
             </div>
 
             @if (artworks && artworks.length == 0) {
                 <div class="text-center my-4">
-                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="grande"
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="mediano"
                         (click)="deleteCategory()">
                         Eliminar categoría
                     </button>

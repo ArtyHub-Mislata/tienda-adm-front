@@ -3,12 +3,13 @@ import { HttpService } from '../../../services/http-service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CredentialModel } from '../../../models/CredentialModel';
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'login-page',
-  imports: [FormsModule],
+  imports: [FormsModule, CButton],
   templateUrl: './login-page.html',
-  styleUrl: './login-page.scss',
+  styleUrls: ['./login-page.scss'],
 })
 export class LoginPage {
   

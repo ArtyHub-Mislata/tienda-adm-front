@@ -32,37 +32,37 @@ export class HttpService {
     return this.httpClient.get<ArtWorkModel>(`${this.url}/artworks/${id}`)
   }
   putArtWork(artwork: ArtWorkModel):Observable<ArtWorkModel>{
-    return this.httpClient.put<ArtWorkModel>(`${this.url}/artworks/${artwork.id}`, artwork)
+    return this.httpClient.put<ArtWorkModel>(`${this.url}/admin/artworks/${artwork.id}`, artwork)
   }
   //Aqui en post lo que recibimos en teoria es diferente a lo que mandamos, por lo que creo que habria que
   //crear nuevas clases modelo con el tipo de respuesta que nos mande la api
   postArtWork(artwork: ArtWorkModel):Observable<ArtWorkModel>{
-    return this.httpClient.post<ArtWorkModel>(`${this.url}/artworks`, artwork)
+    return this.httpClient.post<ArtWorkModel>(`${this.url}/admin/artworks`, artwork)
   }
   deleteArtwork(id: string):Observable<void> {
-    return this.httpClient.delete<void>(`${this.url}/artworks/${id}`)
+    return this.httpClient.delete<void>(`${this.url}/admin/artworks/${id}`)
   }
 
   //CRUD USUARIOS
   
   getAllUsers(): Observable<PageResponse<UserModel>>{
-    return this.httpClient.get<PageResponse<UserModel>>(`${this.url}/users`)
+    return this.httpClient.get<PageResponse<UserModel>>(`${this.url}/admin/users`)
   }
   getAllArtworksOfUser(id:string): Observable<PageResponse<ArtWorkModel>>{
-    return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/users/${id}/artworks`)
+    return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/admin/users/${id}/artworks`)
   }
   
   getUserById(id:string):Observable<UserModel>{
-    return this.httpClient.get<UserModel>(`${this.url}/users/${id}`)
+    return this.httpClient.get<UserModel>(`${this.url}/admin/users/${id}`)
   }
   putUser(artwork: UserModel):Observable<UserModel>{
-    return this.httpClient.put<UserModel>(`${this.url}/users/${artwork.id}`, artwork)
+    return this.httpClient.put<UserModel>(`${this.url}/admin/users/${artwork.id}`, artwork)
   }
   postUser(artwork: UserModel):Observable<UserModel>{
-    return this.httpClient.post<UserModel>(`${this.url}/users`, artwork)
+    return this.httpClient.post<UserModel>(`${this.url}/admin/users`, artwork)
   }
   deleteUser(id: string):Observable<void> {
-    return this.httpClient.delete<void>(`${this.url}/users/${id}`)
+    return this.httpClient.delete<void>(`${this.url}/admin/users/${id}`)
   }
 
   //CRUD CATEGORIAS
@@ -75,13 +75,13 @@ export class HttpService {
     return this.httpClient.get<CategoryModel>(`${this.url}/categories/${id}`)
   }
   putCategory(artwork: CategoryModel):Observable<CategoryModel>{
-    return this.httpClient.put<CategoryModel>(`${this.url}/categories/${artwork.id}`, artwork)
+    return this.httpClient.put<CategoryModel>(`${this.url}/admin/categories/${artwork.id}`, artwork)
   }
   postCategory(artwork: CategoryModel):Observable<CategoryModel>{
-    return this.httpClient.post<CategoryModel>(`${this.url}/categories`, artwork)
+    return this.httpClient.post<CategoryModel>(`${this.url}/admin/categories`, artwork)
   }
   deleteCategory(id: string):Observable<void> {
-    return this.httpClient.delete<void>(`${this.url}/categories/${id}`)
+    return this.httpClient.delete<void>(`${this.url}/admin/categories/${id}`)
   }
 
   login(credential: CredentialModel): Observable<{ token: string }> {
@@ -91,7 +91,7 @@ export class HttpService {
   logout():Observable<void> {
     const token = localStorage.getItem('token');
     localStorage.removeItem('token');
-    return this.httpClient.delete<void>(`${this.url}/users/logout?token=${token}`);
+    return this.httpClient.delete<void>(`${this.url}/users/logout`);
   }
 
   isLogged(): Observable<boolean> {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class Header {
   isLogged: boolean = false;
   
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private router: Router) {
     
   }
   ngOnInit(){
@@ -29,6 +29,7 @@ export class Header {
         console.log("SESION CERRADA CON ÉXITO")
         localStorage.removeItem("token")
         this.httpService.btnIsLogged.next(false)
+        this.router.navigate(['/login'])
       }, 
       error: (err) =>{
         console.log("HAY UN ERROR EN EL LOGOUT" ,err)

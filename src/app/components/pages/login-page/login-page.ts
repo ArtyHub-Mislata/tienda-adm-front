@@ -4,10 +4,11 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CredentialModel } from '../../../models/CredentialModel';
 import { CButton } from '../../ui/c-button/c-button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'login-page',
-  imports: [FormsModule, CButton],
+  imports: [FormsModule, CButton, RouterLink],
   templateUrl: './login-page.html',
   styleUrls: ['./login-page.scss'],
 })

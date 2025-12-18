@@ -98,9 +98,9 @@ export class HttpService {
   }
 
   isLogged(): Observable<boolean> {
-  return this.httpClient.get<UserModel | null>(`${this.url}/users/islogged`).pipe(
-    map(user => !!user)
-  );
-}
+    return this.httpClient.get<UserModel | null>(`${this.url}/users/islogged`).pipe(
+      map(user => !!user)
+    );
+  }
 
 }

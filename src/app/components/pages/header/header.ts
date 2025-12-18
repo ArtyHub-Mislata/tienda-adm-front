@@ -28,7 +28,7 @@ export class Header {
       next: () => {
         console.log("SESION CERRADA CON ÉXITO")
         localStorage.removeItem("token")
-        this.httpService.btnIsLogged.next(true)
+        this.httpService.btnIsLogged.next(false)
       }, 
       error: (err) =>{
         console.log("HAY UN ERROR EN EL LOGOUT" ,err)

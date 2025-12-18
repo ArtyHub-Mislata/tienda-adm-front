@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'c-header',
@@ -9,34 +10,33 @@ import { HttpService } from '../../../services/http-service';
   styleUrl: './header.scss',
 })
 export class Header {
-  isLogged = false;
-  constructor(private httpService: HttpService){}
+  isLogged: boolean = false;
+  
 
-  ngOnInit() {
-    this.checkIsLogged();
+  constructor(private httpService: HttpService) {
+    
   }
-
+  ngOnInit(){
+    this.httpService.isLogged$.subscribe({
+      next: (isLogged) =>{
+        this.isLogged = isLogged;
+      }
+    })
+  }
   logOut(){
     this.httpService.logout().subscribe({
-      next : () =>{
-        console.log("Sesion cerrada con éxito")
-        this.isLogged = false;
+      next: () => {
+        console.log("SESION CERRADA CON ÉXITO")
+        localStorage.removeItem("token")
+        this.httpService.btnIsLogged.next(true)
       }, 
-      error: (error) => { 
-        console.log("Error al cerrar sesión", error)
+      error: (err) =>{
+        console.log("HAY UN ERROR EN EL LOGOUT" ,err)
       }
+
     })
   }
 
-  checkIsLogged(){
-    this.httpService.isLogged().subscribe({
-      next : () =>{
-        console.log("Sesion iniciada con éxito")
-        this.isLogged = true;
-      }, 
-      error: (error) => { 
-        console.log("Error al iniciar sesión", error)
-      }
-    })
-  }
+  
+  
 }

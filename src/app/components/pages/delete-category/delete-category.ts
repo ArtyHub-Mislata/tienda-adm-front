@@ -69,7 +69,7 @@ export class DeleteCategory {
       this.httpService.deleteArtwork(id.toString()).subscribe({
         next: () => {
           console.log("ELEMENTO BORRADO")
-          this.router.navigate([`/categories/${this.category.id}/delete`])
+          this.loadArtworksByCategory(this.category.id!)
         }, 
         error: (error) => {
           console.log(error)

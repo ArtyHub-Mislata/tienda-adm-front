@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { CButton } from '../../ui/c-button/c-button';
+import { UserRequestModel } from '../../../models/UserRequestModel';
 
 @Component({
   selector: 'app-create-user',
@@ -12,7 +13,7 @@ import { CButton } from '../../ui/c-button/c-button';
   styleUrl: './create-user.scss',
 })
 export class CreateUser {
-  user: UserModel = {} as UserModel;
+  user: UserRequestModel = {} as UserRequestModel;
 
   constructor(private route: ActivatedRoute, private httpService: HttpService, private router :Router){}
 

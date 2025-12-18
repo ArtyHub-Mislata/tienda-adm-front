@@ -25,8 +25,10 @@ export class LoginPage {
       next: (resp) => {
         localStorage.setItem('token', resp.token);
         this.router.navigate(['/']);
+        this.authService.btnIsLogged.next(true)
       },
       error: (error) => {
+        this.authService.btnIsLogged.next(false)
         console.log(error);
       }
     })

@@ -21,13 +21,16 @@ export class DeleteUser {
       paramMap => {
         const id = paramMap.get('id')!
         if(id){
-          this.loadUser(id)
-          this.loadArtworksOfUser(id)
+          this.loadAll(id)
         }
       }
       
     )
     
+  }
+  loadAll(id: string){
+    this.loadUser(id)
+    this.loadArtworksOfUser(id)
   }
   loadUser(id: string){
     this.httpService.getUserById(id).subscribe({
@@ -53,7 +56,7 @@ export class DeleteUser {
     if(id){
       this.httpService.deleteArtwork(id.toString()).subscribe({
         next: () => {
-          this.router.navigate([`/users/${this.user.id}/delete`])
+          this.loadArtworksOfUser(this.user.id!)
         }, 
         error: (error) => {
           console.log(error)

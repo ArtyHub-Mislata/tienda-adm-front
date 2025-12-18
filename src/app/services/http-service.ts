@@ -1,16 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ArtWorkModel } from '../models/ArtWorkModel';
 import { UserModel } from '../models/UserModel';
 import { CategoryModel } from '../models/CategoryModel';
 import { PageResponse } from '../models/PageResponseModel';
 import { CredentialModel } from '../models/CredentialModel';
+import { UserRequestModel } from '../models/UserRequestModel';
+import { map } from 'rxjs/operators'; // ✔ (Angular <=15)
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
+
+  btnIsLogged = new BehaviorSubject<boolean>(false);
+  isLogged$ = this.btnIsLogged.asObservable();
 
   //TODO la url y puerto deberian estar en un archivo config
   private url = "http://localhost:8080/api"
@@ -55,11 +60,11 @@ export class HttpService {
   getUserById(id:string):Observable<UserModel>{
     return this.httpClient.get<UserModel>(`${this.url}/admin/users/${id}`)
   }
-  putUser(artwork: UserModel):Observable<UserModel>{
-    return this.httpClient.put<UserModel>(`${this.url}/admin/users/${artwork.id}`, artwork)
+  putUser(user: UserRequestModel):Observable<UserModel>{
+    return this.httpClient.put<UserModel>(`${this.url}/admin/users/${user.id}`, user)
   }
-  postUser(artwork: UserModel):Observable<UserModel>{
-    return this.httpClient.post<UserModel>(`${this.url}/admin/users`, artwork)
+  postUser(user: UserRequestModel):Observable<UserModel>{
+    return this.httpClient.post<UserModel>(`${this.url}/admin/users`, user)
   }
   deleteUser(id: string):Observable<void> {
     return this.httpClient.delete<void>(`${this.url}/admin/users/${id}`)
@@ -89,13 +94,13 @@ export class HttpService {
   }
 
   logout():Observable<void> {
-    const token = localStorage.getItem('token');
-    localStorage.removeItem('token');
     return this.httpClient.delete<void>(`${this.url}/users/logout`);
   }
 
-  isLogged(): Observable<UserModel> {
-    return this.httpClient.get<UserModel>(`${this.url}/users/islogged`);
-  }
+  isLogged(): Observable<boolean> {
+  return this.httpClient.get<UserModel | null>(`${this.url}/users/islogged`).pipe(
+    map(user => !!user)
+  );
+}
 
 }

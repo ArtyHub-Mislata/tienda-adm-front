@@ -32,8 +32,8 @@
                             <tr>
                                 <td>{{ user.id }}</td>
                                 <td>
-                                    <a routerLink="{{ user.id }}" class="fw-semibold text-decoration-none">
-                                        {{ user.name }}
+                                    <a routerLink="/users/{{ user.id }}" class="fw-semibold text-decoration-none">
+                                        <u>{{ user.name }}</u>
                                     </a>
                                 </td>
                                 <td>{{ user.email }}</td>

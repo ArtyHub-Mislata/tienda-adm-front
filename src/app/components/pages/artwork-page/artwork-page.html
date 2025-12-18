@@ -19,8 +19,8 @@
 
                 <hr>
 
-                <p class="c-card__text c-card__text-m3">
-                    <strong>Precio:</strong> {{ artwork.price }} $
+                <p class="c-card__text c-card__text-m3 g--font-questrial">
+                    <strong>Precio:</strong> {{ artwork.price }}$
                 </p>
 
                 <div class="l-flex l-flex--justify-between l-flex--align-center">
@@ -31,7 +31,7 @@
                     <a
                         routerLink="/users/{{ artwork.userDto.id }}"
                         class="text-decoration-none fw-semibold">
-                        {{ artwork.userDto.name }}
+                        <u>{{ artwork.userDto.name }}</u>
                     </a>
                 </div>
             </div>

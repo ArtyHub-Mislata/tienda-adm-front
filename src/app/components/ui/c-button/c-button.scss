@@ -1,4 +1,4 @@
-@use "../../../scss/01_utilities" as *;
+@use "../01_utilities" as *;
 
 button.boton,
 a.boton {
@@ -9,7 +9,7 @@ a.boton {
     --boton-border-color:var(--boton-color-strong);
     --boton-text-color: var(--boton-color-weak);
 
-    --boton-font-family: var(--mlt-sys-font-default);
+    --boton-font-family: var(--mlt-sys-font-noto-sans-arabic);
     --boton-font-size: var(--mlt-sys-font-size-4);
 
     --boton-padding: var(--mlt-sys-padding-3);

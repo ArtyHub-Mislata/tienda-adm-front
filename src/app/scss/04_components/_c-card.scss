@@ -16,6 +16,12 @@
         text-align: center;
     }
 
+    &__sub-title {
+        font-weight: var(--mlt-sys-fw-medium);
+        font-size: var(--mlt-sys-font-size-5);
+        text-align: center;
+    }
+
     &__text {
         text-align: center;
         font-size: var(--mlt-sys-font-size-3);

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark px-4">
     <div class="container-fluid">
 
-        <a class="navbar-brand fw-bold" [style.color]="'purple'" href="#">
-            Tienda Admin Front
+        <a class="navbar-brand fw-bold g--font-montserrat-arabic" [style.color]="'purple'" href="#">
+            Artyhub Admin
         </a>
 
         <button 
@@ -32,12 +32,12 @@
                 </li>
                 @if(isLogged){
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="login" (click)="logOut()">Log Out</a>
+                        <a class="nav-link g--font-noto-sans-arabic" routerLink="login" (click)="logOut()">Log Out</a>
                     </li>
                 }
                 @else{
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="login">Log In</a>
+                        <a class="nav-link g--font-noto-sans-arabic" routerLink="login">Log In</a>
                     </li>
                 }
             </ul>

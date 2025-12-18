@@ -26,10 +26,17 @@
                     required>
             </div>
 
-            <button c-button funcion="normal" importancia="primaria" tamano="mediano"
-                [disabled]="loginForm.invalid">
-                Entrar
-            </button>
+            <div class="l-flex l-flex--justify-between">
+                <a c-button funcion="alternativa" importancia="terciaria" tamano="mediano"
+                    routerLink="/">
+                    Volver
+                </a>
+
+                <button c-button funcion="normal" importancia="primaria" tamano="mediano"
+                    [disabled]="loginForm.invalid">
+                    Entrar
+                </button>
+            </div>
         </form>
     </div>
 </div>

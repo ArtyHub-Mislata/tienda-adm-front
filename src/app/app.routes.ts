@@ -15,8 +15,11 @@ import { DeleteCategory } from './components/pages/delete-category/delete-catego
 import { CreateCategory } from './components/pages/create-category/create-category';
 import { logInGuardGuard } from './guards/log-in-guard-guard';
 import { LoginPage } from './components/pages/login-page/login-page';
+import { InitialPage } from './components/pages/initial-page/initial-page';
 
 export const routes: Routes = [
+
+    {path: "", component: InitialPage},
 
     {path: "artworks", component: ArtworkListPage, canActivate: [logInGuardGuard]},
     {path: "artworks/:id", component: ArtworkPage, canActivate: [logInGuardGuard]}, 

@@ -51,14 +51,14 @@
                             <td>{{ artwork.id }}</td>
                             <td>
                                 <a routerLink="/artworks/{{artwork.id}}" class="fw-semibold text-decoration-none">
-                                    {{ artwork.name }}
+                                    <u>{{ artwork.name }}</u>
                                 </a>
                             </td>
                             <td class="text-start">{{ artwork.description }}</td>
                             <td>
                                 <img src="{{artwork.image}}" width="100" class="img-fluid rounded" alt="Artwork image">
                             </td>
-                            <td>{{ artwork.price }}</td>
+                            <td class="g--font-questrial">{{ artwork.price }}$</td>
                             <td>{{ artwork.categoryDto.name }}</td>
                             <td class="l-flex l-flex--justify-center l-flex--gap-2">
                                 <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"

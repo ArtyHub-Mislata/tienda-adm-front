@@ -27,8 +27,8 @@
                                     <td>{{ artwork.id }}</td>
 
                                     <td>
-                                        <a routerLink="{{ artwork.id }}" class="fw-semibold">
-                                            {{ artwork.name }}
+                                        <a routerLink="/artworks/{{ artwork.id }}" class="fw-semibold">
+                                            <u>{{ artwork.name }}</u>
                                         </a>
                                     </td>
 
@@ -44,9 +44,13 @@
                                             alt="Artwork image">
                                     </td>
 
-                                    <td>{{ artwork.price }}€</td>
+                                    <td class="g--font-questrial">{{ artwork.price }}$</td>
                                     <td>{{ artwork.categoryDto.name }}</td>
-                                    <td>{{ artwork.userDto.name }}</td>
+                                    <td>
+                                        <a routerLink="/users/{{ artwork.userDto.id }}">
+                                            <u>{{ artwork.userDto.name }}</u>
+                                        </a>
+                                    </td>
 
                                     <td class="l-flex l-flex--justify-center l-flex--gap-2">
                                         <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"

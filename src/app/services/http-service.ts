@@ -94,9 +94,8 @@ export class HttpService {
     return this.httpClient.delete<void>(`${this.url}/users/logout`);
   }
 
-  isLogged(): Observable<boolean> {
-    const token = localStorage.getItem('token');
-    return this.httpClient.get<boolean>(`${this.url}/users/isLogged?token=${token}`);
+  isLogged(): Observable<UserModel> {
+    return this.httpClient.get<UserModel>(`${this.url}/users/islogged`);
   }
 
 }

@@ -5,8 +5,6 @@ export interface UserModel {
     id?: string;
     name: string;
     email: string;
-    password: string
-    nAccount: string
     description: string;
     address: string
     imageProfileUrl: string;

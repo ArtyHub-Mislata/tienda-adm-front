@@ -36,7 +36,6 @@ export class HttpService {
   getArtWorkById(id:string):Observable<ArtWorkModel>{
     return this.httpClient.get<ArtWorkModel>(`${this.url}/artworks/${id}`)
   }
-
   putArtWork(artwork: ArtWorkModel):Observable<ArtWorkModel>{
     return this.httpClient.put<ArtWorkModel>(`${this.url}/admin/artworks/${artwork.id}`, artwork)
   }

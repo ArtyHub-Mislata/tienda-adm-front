@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CategoryModel } from '../../../models/CategoryModel';
-
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { CButton } from '../../ui/c-button/c-button';

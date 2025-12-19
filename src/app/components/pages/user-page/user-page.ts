@@ -39,7 +39,6 @@ export class UserPage {
       }
     })
   }
-
   loadArtworksOfUser(id:string){
     this.httpService.getAllArtworksOfUser(id).subscribe({
       next: (artworkPage) => {

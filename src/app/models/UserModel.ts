@@ -1,10 +1,12 @@
+import { ArtWorkModel } from "./ArtWorkModel";
+import { UserRole } from "./UserRole";
+
 export interface UserModel {
-    id: string;
-    username: string;
+    id?: string;
+    name: string;
     email: string;
-    password?: string;
-    firstName: string;
-    lastName: string;
-    avatarUrl?: string;
-    bio?: string;
+    description: string;
+    address: string
+    imageProfileUrl: string;
+    role: UserRole
 }

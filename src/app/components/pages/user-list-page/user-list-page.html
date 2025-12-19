@@ -1,35 +1,68 @@
-<br>
-<h3>Listado de Artworks (Pa probar si funciona el getAll)</h3>
-<div style="width:90%">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-               <th>ID</th> 
-               <th>USERNAME</th> 
-               <th>EMAIL</th> 
-               <th>NOMBRE</th> 
-               <th>APELLIDO</th> 
-               <th>AVATAR</th> 
-               <th>BIO</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (user of usermodelList; track user.id) {
-                <tr>
-                    <td>{{user.id}}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.firstName}}</td>
-                    <td>{{user.lastName}}</td>
-                    <td><img width="100px" src="{{user.avatarUrl}}"></td>
-                    <td>{{user.bio}}</td>
-                    <td>
-                        <!-- TODO ME DA PATEO TERMINARLO -->
-                        <a>MODIFICAR</a>
-                        <a>ELIMINAR</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div class="l-flex l-flex--justify-center g--margin-top-5">
+    <div class="c-card g--width-1200">
+        <div class="c-card__body">
+
+            <div class="l-flex l-flex--justify-between l-flex--align-center g--margin-bottom-5">
+                <h3 class="c-card__title">
+                    Listado de Usuarios
+                </h3>
+
+                <a c-button funcion="normal" importancia="primaria" tamano="mediano"
+                    routerLink="/users/new">
+                    Crear Usuario
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped align-middle text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Descripción</th>
+                            <th>Dirección</th>
+                            <th>Avatar</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (user of usermodelList; track user.id) {
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>
+                                    <a routerLink="/users/{{ user.id }}" class="fw-semibold text-decoration-none">
+                                        <u>{{ user.name }}</u>
+                                    </a>
+                                </td>
+                                <td>{{ user.email }}</td>
+                                
+                                <td class="text-start">{{ user.description }}</td>
+                                <td>{{ user.address }}</td>
+                                <td>
+                                    <img
+                                        src="{{ user.imageProfileUrl }}"
+                                        width="100"
+                                        class="img-fluid rounded"
+                                        alt="Avatar">
+                                </td>
+                                <td>{{ user.role }}</td>
+                                <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                    <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
+                                        routerLink="/users/{{ user.id }}/edit">
+                                        Modificar
+                                    </a>
+                                    <a c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
+                                        routerLink="/users/{{ user.id }}/delete">
+                                        Borrar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

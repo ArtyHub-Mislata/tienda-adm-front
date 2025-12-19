@@ -1,6 +1,48 @@
-<div>
-    <h1>¿SEGURO QUE QUIERES ELIMINAR EL ARTWORK?</h1>
-    <card-artwork [artwork]="artwork"></card-artwork>
-    <button class="btn btn-danger" (click)="deleteArtwork()"  routerLink="/artworks">ELIMINAR</button>
-    <button class="btn btn-primary" routerLink="/artworks">VOLVER</button>
-</div>
+@if (artwork) {
+    <div class="l-flex l-flex--justify-center g--margin-top-5">
+        <div class="c-card g--width-500">
+
+            <img
+                [src]="artwork.image"
+                class="card-img-top img-fluid"
+                alt="Artwork image">
+
+            <div class="c-card__body">
+
+                <h5 class="c-card__title">
+                    {{ artwork.name }}
+                </h5>
+
+                <p class="c-card__text">
+                    {{ artwork.description }}
+                </p>
+
+                <hr>
+
+                <p class="c-card__text g--font-questrial">
+                    <strong>Precio:</strong> {{ artwork.price }}$
+                </p>
+
+                <div class="l-flex l-flex--justify-between g--margin-top-3">
+                    <span class="text-muted">
+                        Categoría: {{ artwork.categoryDto.name }}
+                    </span>
+                    <span class="fw-semibold">
+                        {{ artwork.userDto.name }}
+                    </span>
+                </div>
+
+                <div class="l-flex l-flex--justify-between g--margin-top-4">
+                    <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
+                        routerLink="/artworks">
+                        Volver
+                    </a>
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="mediano"
+                        (click)="delete()">
+                        Borrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,1 +1,97 @@
-<p>delete-category works!</p>
+<div class="l-flex l-flex--justify-center g--margin-top-5">
+    <div class="c-card g--width-1100">
+        <div class="c-card__body">
+
+            <h3 class="c-card__title g--margin-bottom-5">
+                Eliminar categoría
+            </h3>
+
+            @if (category) {
+                <h5 class="c-card__text g--margin-bottom-5">
+                    Categoría: <strong>{{ category.name }}</strong>
+                </h5>
+            }
+
+            @if (artworks && artworks.length > 0) {
+
+                <div class="alert alert-warning text-center g--margin-bottom-5">
+                    NO PUEDES ELIMINAR UNA CATEGORÍA QUE ESTÉ ASIGNADA A ARTWORKS.  
+                    ELIMINA PRIMERO LOS ARTWORKS ASOCIADOS.
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle text-center">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>IMAGEN</th>
+                                <th>PRECIO</th>
+                                <th>CATEGORÍA</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (artwork of artworks; track artwork.id) {
+                                <tr>
+                                    <td>{{ artwork.id }}</td>
+
+                                    <td>
+                                        <a
+                                            routerLink="/artworks/{{ artwork.id }}"
+                                            class="fw-semibold text-decoration-none">
+                                            {{ artwork.name }}
+                                        </a>
+                                    </td>
+
+                                    <td class="text-start">
+                                        {{ artwork.description }}
+                                    </td>
+
+                                    <td>
+                                        <img
+                                            src="{{ artwork.image }}"
+                                            width="100"
+                                            class="img-fluid rounded"
+                                            alt="Artwork image">
+                                    </td>
+
+                                    <td class="g--font-questrial">{{ artwork.price }}</td>
+                                    <td>{{ artwork.categoryDto.name }}</td>
+
+                                    <td class="l-flex l-flex--justify-center l-flex--gap-2">
+                                        <a c-button funcion="alternativa" importancia="secundaria" tamano="pequeno"
+                                            routerLink="/artworks/{{ artwork.id }}/edit">
+                                            Modificar
+                                        </a>
+                                        <button c-button funcion="peligrosa" importancia="terciaria" tamano="pequeno"
+                                            (click)="deleteArtWork(artwork.id)">
+                                            Borrar
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+            <div class="text-center mt-4">
+                <a c-button funcion="alternativa" importancia="secundaria" tamano="mediano"
+                    routerLink="/categories">
+                    Volver
+                </a>
+            </div>
+
+            @if (artworks && artworks.length == 0) {
+                <div class="text-center my-4">
+                    <button c-button funcion="peligrosa" importancia="terciaria" tamano="mediano"
+                        (click)="deleteCategory()">
+                        Eliminar categoría
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

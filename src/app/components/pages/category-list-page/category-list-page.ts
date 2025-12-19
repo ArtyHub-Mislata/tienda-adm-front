@@ -1,32 +1,31 @@
 import { Component } from '@angular/core';
 import { CategoryModel } from '../../../models/CategoryModel';
+
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
-import { RouterLink } from "@angular/router";
+import { CButton } from '../../ui/c-button/c-button';
 
 @Component({
   selector: 'app-category-list-page',
-  imports: [RouterLink],
+  imports: [RouterLink, CButton],
   templateUrl: './category-list-page.html',
   styleUrl: './category-list-page.scss',
 })
 export class CategoryListPage {
-  categoryList!: CategoryModel[]
+  categories!: CategoryModel[];
+  constructor(private route: ActivatedRoute, private httpService: HttpService, private router :Router){}
 
-  constructor(private httpService: HttpService){}
-
-  ngOnInit() {
-    this.getAllCategories()
+  ngOnInit(){
+    this.loadCategories();
   }
-
-  getAllCategories() {
+  loadCategories(){
     this.httpService.getAllCategories().subscribe({
-      next: (categories) => {
-        this.categoryList = categories;
-      },
+      next: (categoriesPage) => {
+        this.categories = categoriesPage.data
+      }, 
       error: (error) => {
-        console.log("Error al tratar de recoger todas las categorias", error)
+        console.log(error)
       }
     })
   }
-
 }

@@ -27,7 +27,7 @@ export class Header {
     this.httpService.logout().subscribe({
       next: () => {
         console.log("SESION CERRADA CON ÉXITO")
-        this.router.navigate(['/login'])
+        this.router.navigate(['/logout'])
       }, 
       error: (err) =>{
         console.log("HAY UN ERROR EN EL LOGOUT" ,err)

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -11,15 +11,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class Header {
   isLogged: boolean = false;
-  
 
-  constructor(private httpService: HttpService, private router: Router) {
+  constructor(private httpService: HttpService, private router: Router, private cd: ChangeDetectorRef) {
     
   }
   ngOnInit(){
     this.httpService.isLogged$.subscribe({
       next: (isLogged) =>{
         this.isLogged = isLogged;
+        this.cd.detectChanges();
       }
     })
   }
@@ -27,8 +27,6 @@ export class Header {
     this.httpService.logout().subscribe({
       next: () => {
         console.log("SESION CERRADA CON ÉXITO")
-        localStorage.removeItem("token")
-        this.httpService.btnIsLogged.next(false)
         this.router.navigate(['/login'])
       }, 
       error: (err) =>{

@@ -17,6 +17,7 @@ import { logInGuardGuard } from './guards/log-in-guard-guard';
 import { LoginPage } from './components/pages/login-page/login-page';
 import { InitialPage } from './components/pages/initial-page/initial-page';
 import { LogoutPage } from './components/pages/logout-page/logout-page';
+import { ProfilePage } from './components/pages/profile-page/profile-page';
 
 export const routes: Routes = [
 
@@ -41,5 +42,6 @@ export const routes: Routes = [
     {path: "categories/new", component: CreateCategory, canActivate: [logInGuardGuard]},
 
     {path:"login", component: LoginPage},
-    {path:"logout", component: LogoutPage}
+    {path:"logout", component: LogoutPage},
+    {path:"profile", component: ProfilePage}
 ];

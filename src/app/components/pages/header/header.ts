@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { HttpService } from '../../../services/http-service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { UserModel } from '../../../models/UserModel';
 
 @Component({
   selector: 'c-header',
@@ -11,6 +12,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class Header {
   isLogged: boolean = false;
+  user?: UserModel;
 
   constructor(private httpService: HttpService, private router: Router, private cd: ChangeDetectorRef) {
     
@@ -19,6 +21,12 @@ export class Header {
     this.httpService.isLogged$.subscribe({
       next: (isLogged) =>{
         this.isLogged = isLogged;
+        this.cd.detectChanges();
+      }
+    })
+    this.httpService.getUser().subscribe({
+      next: (user) => {
+        this.user = user;
         this.cd.detectChanges();
       }
     })

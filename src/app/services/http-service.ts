@@ -89,6 +89,8 @@ export class HttpService {
     return this.httpClient.delete<void>(`${this.url}/admin/categories/${id}`)
   }
 
+  //CRUD LOGIN
+
   login(credential: CredentialModel): Observable<{ token: string }> {
     return this.httpClient.post<{ token: string }>(`${this.url}/users/login`, credential);
   }

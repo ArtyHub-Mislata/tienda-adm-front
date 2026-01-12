@@ -17,7 +17,7 @@
                     email
                     #emailCtrl="ngModel">
 
-                @if (emailCtrl.invalid && emailCtrl.touched) {
+                @if (emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)) {
                     <div class="alert alert-warning">
                         El formato del email que has introducido no es correcto. Introduce un formato valido
                     </div>
@@ -34,6 +34,12 @@
                     name="password"
                     required
                     #passwordCtrl="ngModel">
+
+                @if (passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)) {
+                    <div class="alert alert-warning">
+                        La contraseña debe tener al menos 8 caracteres
+                    </div>
+                }
             </div>
 
             @if (generalError) {

@@ -19,25 +19,29 @@ export class LoginPage {
     password: ''
   };
 
+  isLogged: boolean = false;
+
   generalError: string = '';
+
+  loading: boolean = false;
 
   constructor( private authService: HttpService, private router: Router ){}
 
   onLogin(form: NgForm) {
     this.generalError = '';
 
+    this.loading = true;
+
     if(form.invalid) return;
 
     this.authService.login(this.credential).subscribe({
-      next: (resp) => {
-        localStorage.setItem('token', resp.token);
+      next: () => {
+        this.loading = false;
         this.router.navigate(['/']);
-        this.authService.btnIsLogged.next(true)
       },
-      error: (error) => {
-        this.authService.btnIsLogged.next(false)
+      error: () => {
+        this.loading = false;
         this.generalError = 'Error al iniciar sesión';
-        console.log('Error no controlado: ', error);
       }
     });
   }

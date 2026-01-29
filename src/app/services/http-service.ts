@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators'; // ✔ (Angular <=15)
 })
 export class HttpService {
 
-  btnIsLogged = new BehaviorSubject<boolean>(false);
+  btnIsLogged = new BehaviorSubject<boolean>(this.hasToken());
   isLogged$ = this.btnIsLogged.asObservable();
 
   //TODO la url y puerto deberian estar en un archivo config
@@ -29,8 +29,7 @@ export class HttpService {
   }
 
   getAllArtworks(): Observable<PageResponse<ArtWorkModel>>{
-    console.log()
-    return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/artworks`)
+    return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/artworks?page=1&size=10`)
   }
   
   getArtWorkById(id:string):Observable<ArtWorkModel>{
@@ -51,7 +50,7 @@ export class HttpService {
   //CRUD USUARIOS
   
   getAllUsers(): Observable<PageResponse<UserModel>>{
-    return this.httpClient.get<PageResponse<UserModel>>(`${this.url}/admin/users`)
+    return this.httpClient.get<PageResponse<UserModel>>(`${this.url}/admin/users?page=1&size=10`)
   }
   getAllArtworksOfUser(id:string): Observable<PageResponse<ArtWorkModel>>{
     return this.httpClient.get<PageResponse<ArtWorkModel>>(`${this.url}/admin/users/${id}/artworks`)
@@ -73,7 +72,7 @@ export class HttpService {
   //CRUD CATEGORIAS
 
   getAllCategories(): Observable<PageResponse<CategoryModel>>{
-    return this.httpClient.get<PageResponse<CategoryModel>>(`${this.url}/categories`)
+    return this.httpClient.get<PageResponse<CategoryModel>>(`${this.url}/categories?page=1&size=10`)
   }
   
   getCategoryId(id:string):Observable<CategoryModel>{
@@ -89,18 +88,41 @@ export class HttpService {
     return this.httpClient.delete<void>(`${this.url}/admin/categories/${id}`)
   }
 
+  //CRUD LOGIN
+
   login(credential: CredentialModel): Observable<{ token: string }> {
-    return this.httpClient.post<{ token: string }>(`${this.url}/users/login`, credential);
+    return this.httpClient.post<{ token: string }>(`${this.url}/users/login`, credential)
+    .pipe(
+      map((resp) => {
+        localStorage.setItem('token', resp.token);
+        this.btnIsLogged.next(true);
+        return resp;
+      })
+    );
   }
 
   logout():Observable<void> {
-    return this.httpClient.delete<void>(`${this.url}/users/logout`);
+    return this.httpClient.delete<void>(`${this.url}/users/logout`)
+    .pipe(
+      map(() => {
+        localStorage.removeItem('token');
+        this.btnIsLogged.next(false);
+      })
+    );
   }
 
   isLogged(): Observable<boolean> {
     return this.httpClient.get<UserModel | null>(`${this.url}/users/islogged`).pipe(
-      map(user => !!user)
+      map((user) => !!user)
     );
+  }
+
+  hasToken(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  getUser(): Observable<UserModel | undefined> {
+    return this.httpClient.get<UserModel | undefined>(`${this.url}/users/islogged`);
   }
 
 }

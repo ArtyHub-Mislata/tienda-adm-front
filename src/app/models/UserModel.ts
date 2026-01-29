@@ -1,4 +1,3 @@
-import { ArtWorkModel } from "./ArtWorkModel";
 import { UserRole } from "./UserRole";
 
 export interface UserModel {

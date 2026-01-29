@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardArtwork } from './card-artwork';
+import { LogoutPage } from './logout-page';
 
-describe('CardArtwork', () => {
-  let component: CardArtwork;
-  let fixture: ComponentFixture<CardArtwork>;
+describe('LogoutPage', () => {
+  let component: LogoutPage;
+  let fixture: ComponentFixture<LogoutPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardArtwork]
+      imports: [LogoutPage]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CardArtwork);
+    fixture = TestBed.createComponent(LogoutPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
